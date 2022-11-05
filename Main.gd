@@ -13,6 +13,7 @@ var puppy_texture3 = preload("res://art/puppy3.png")
 #var global = get_tree().get_node("Global")
 
 func _ready():
+	
 	rng.randomize()
 	Global.puppy_total = 0
 

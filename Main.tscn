@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Art/puppy1.png" type="Texture" id=10]
 [ext_resource path="res://Art/puppy2.png" type="Texture" id=11]
 [ext_resource path="res://Audio/Meow.mp3" type="AudioStream" id=12]
+[ext_resource path="res://Audio/MainAudio.mp3" type="AudioStream" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -160,6 +161,10 @@ script = ExtResource( 4 )
 [node name="VisualDogs" type="Node2D" parent="."]
 position = Vector2( 255, 170 )
 script = ExtResource( 6 )
+
+[node name="MainAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
+autoplay = true
 
 [connection signal="pressed" from="GUI/DoorButton" to="." method="_on_DoorButton_pressed"]
 [connection signal="pressed" from="GUI/1Button" to="." method="_on_1Button_pressed"]
