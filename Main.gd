@@ -62,9 +62,15 @@ func _addPuppy():
 			pup_t = puppy_texture3
 	
 	visDog3.texture = pup_t
-	visDog3.modulate.a = 0.5
+	visDog3.modulate.a = 0.7
 	visDog3.set_position(Vector2(rand_x, rand_y))
 	visDog3.scale.x = 0.1
 	visDog3.scale.y = 0.1
-	visDog3.set_modulate(Color(rng.randi_range(0,0.1),rng.randi_range(0,0.1),rng.randi_range(0,0.1)))
+	
 	$VisualDogs.add_child(visDog3, true)
+	
+	# set random value for the movement array
+	# 1 = vertical
+	# 0 = horizontal
+	var rand_mov = rng.randi_range(0, 1)
+	$VisualDogs.mov_array.push_back(rand_mov)
