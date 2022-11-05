@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=2]
 [ext_resource path="res://MainScreen.gd" type="Script" id=3]
 [ext_resource path="res://Audio/MainAudio.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Art/menuimage.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -22,37 +23,42 @@ margin_bottom = 606.0
 margin_right = 1032.0
 margin_bottom = 607.0
 
+[node name="Menuimage" type="Sprite" parent="."]
+position = Vector2( 557, 238 )
+scale = Vector2( 0.6, 0.5 )
+texture = ExtResource( 5 )
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
-margin_left = 334.0
-margin_top = 279.0
+margin_left = 262.0
+margin_top = 216.0
 margin_right = 655.0
 margin_bottom = 580.0
 
 [node name="Play" type="Button" parent="VBoxContainer2"]
-margin_right = 321.0
+margin_right = 393.0
 margin_bottom = 57.0
 custom_fonts/font = ExtResource( 2 )
 text = "Play"
 
 [node name="Credits" type="Button" parent="VBoxContainer2"]
 margin_top = 61.0
-margin_right = 321.0
+margin_right = 393.0
 margin_bottom = 118.0
 custom_fonts/font = ExtResource( 2 )
 text = "Credits"
 
 [node name="Quit" type="Button" parent="VBoxContainer2"]
 margin_top = 122.0
-margin_right = 321.0
+margin_right = 393.0
 margin_bottom = 179.0
 custom_fonts/font = ExtResource( 2 )
 text = "Quit"
 
 [node name="GameTitleLabel" type="Label" parent="."]
-margin_left = 331.0
-margin_top = 167.0
-margin_right = 660.0
-margin_bottom = 272.0
+margin_left = 282.0
+margin_top = 32.0
+margin_right = 611.0
+margin_bottom = 137.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Puppy Paradise"

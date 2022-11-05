@@ -45,3 +45,5 @@ text = "You lose!
 Your Dogs were too Cute
 (The store exploded)"
 align = 1
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
