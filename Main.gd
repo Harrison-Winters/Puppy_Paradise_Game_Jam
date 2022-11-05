@@ -73,4 +73,7 @@ func _addPuppy():
 	# 1 = vertical
 	# 0 = horizontal
 	var rand_mov = rng.randi_range(0, 1)
+	var nums = [-1, 1]
+	var rand_direct = nums[randi() % 2]
 	$VisualDogs.mov_array.push_back(rand_mov)
+	$VisualDogs.direc_array.push_back(rand_direct)
