@@ -2,6 +2,8 @@ extends Node2D
 
 var rng = RandomNumberGenerator.new()
 var store_cute = 300
+var min_cute = -500
+var max_cute = 1500
 var puppy_texture = preload("res://art/dog_realistic.png")
 var puppy_texture2 = preload("res://art/puppy_realistic.png")
 var puppy_texture3 = preload("res://art/large_puppy.png")
@@ -26,6 +28,8 @@ func _on_BothButtons_pressed():
 	
 func _process(delta):
 	$GUI/CurrCute.text = "Cuteness \n" + str(store_cute)
+	if store_cute > max_cute or store_cute < min_cute:
+		$GUI/Background.color = Color(1, 0, 0, 1)
 	
 func _addPuppy():
 	var visDog3 = Sprite.new()
