@@ -3,7 +3,7 @@
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://LoseScreen.gd" type="Script" id=3]
-[ext_resource path="res://Audio/LoseAudio.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/Losing Sound (mp3).mp3" type="AudioStream" id=4]
 [ext_resource path="res://Art/abandoned_store.jpg" type="Texture" id=5]
 [ext_resource path="res://Art/mediumbutton.png" type="Texture" id=6]
 
