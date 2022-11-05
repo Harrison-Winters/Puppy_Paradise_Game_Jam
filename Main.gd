@@ -10,8 +10,11 @@ var vis_puppy_texture3 = preload("res://art/large_puppy.png")
 var puppy_texture1 = preload("res://art/puppy1.png")
 var puppy_texture2 = preload("res://art/puppy2.png")
 var puppy_texture3 = preload("res://art/puppy3.png")
+#var global = get_tree().get_node("Global")
+
 func _ready():
 	rng.randomize()
+	Global.puppy_total = 0
 
 func _on_1Button_pressed():
 	store_cute = store_cute + $Dog1.cuteness
@@ -82,6 +85,9 @@ func _addPuppy():
 	var rand_direct = nums[randi() % 2]
 	$VisualDogs.mov_array.push_back(rand_mov)
 	$VisualDogs.direc_array.push_back(rand_direct)
+	
+	# Increase the grand total of puppies
+	Global.puppy_total += 1
 
 # Cat Game Over
 func _on_CatTimer_timeout():
@@ -115,4 +121,5 @@ func _change_puppy_sprites():
 	$GUI/PuppySprite2.scale.y = 0.1
 	
 	
-
+func _on_DoorButton_pressed():
+	get_tree().change_scene("res://WinScreen.tscn")

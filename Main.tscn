@@ -68,6 +68,14 @@ text = "Dog 2:
 -700"
 align = 1
 
+[node name="DoorButton" type="Button" parent="GUI"]
+margin_left = 28.0
+margin_top = 472.0
+margin_right = 271.0
+margin_bottom = 529.0
+custom_fonts/font = ExtResource( 2 )
+text = "Close Door"
+
 [node name="1Button" type="Button" parent="GUI"]
 margin_left = 27.0
 margin_top = 104.0
@@ -123,27 +131,19 @@ position = Vector2( 964, 88 )
 scale = Vector2( 0.249881, 0.291 )
 texture = ExtResource( 8 )
 
-[node name="DoorButton" type="Button" parent="GUI"]
-margin_left = 28.0
-margin_top = 472.0
-margin_right = 271.0
-margin_bottom = 529.0
-custom_fonts/font = ExtResource( 2 )
-text = "Close Door"
-
 [node name="GuySprite" type="Sprite" parent="GUI"]
 position = Vector2( 525, 224 )
 scale = Vector2( 0.584291, 0.584291 )
 texture = ExtResource( 9 )
 
 [node name="PuppySprite1" type="Sprite" parent="GUI"]
-position = Vector2( 402, 382 )
-scale = Vector2( 0.104583, 0.104583 )
+position = Vector2( 400, 376 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 10 )
 
 [node name="PuppySprite2" type="Sprite" parent="GUI"]
-position = Vector2( 646, 399 )
-scale = Vector2( 0.102604, 0.102604 )
+position = Vector2( 640, 384 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 11 )
 
 [node name="Dog1" type="Node2D" parent="."]
@@ -157,6 +157,7 @@ script = ExtResource( 4 )
 position = Vector2( 255, 170 )
 script = ExtResource( 6 )
 
+[connection signal="pressed" from="GUI/DoorButton" to="." method="_on_DoorButton_pressed"]
 [connection signal="pressed" from="GUI/1Button" to="." method="_on_1Button_pressed"]
 [connection signal="pressed" from="GUI/2Button" to="." method="_on_2Button_pressed"]
 [connection signal="pressed" from="GUI/BothButtons" to="." method="_on_BothButtons_pressed"]

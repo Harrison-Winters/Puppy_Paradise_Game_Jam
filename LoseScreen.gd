@@ -7,7 +7,7 @@ func _ready():
 	self.add_child(t)
 	t.start()
 	yield(t, "timeout")
-	get_tree().change_scene("res://MainScreen.tscn")
+	get_tree().change_scene("res://Main.tscn")
 
 func _on_RestartButton_pressed():
-	get_tree().change_scene("res://MainScreen.tscn")
+	get_tree().change_scene("res://Main.tscn")
