@@ -93,3 +93,4 @@ script = ExtResource( 5 )
 script = ExtResource( 4 )
 
 [connection signal="pressed" from="GUI/1Button" to="." method="_on_1Button_pressed"]
+[connection signal="pressed" from="GUI/2Button" to="." method="_on_2Button_pressed"]
