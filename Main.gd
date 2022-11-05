@@ -32,7 +32,8 @@ func _on_BothButtons_pressed():
 func _process(delta):
 	$GUI/CurrCute.text = "Cuteness \n" + str(store_cute)
 	if store_cute > max_cute or store_cute < min_cute:
-		$GUI/Background.color = Color(1, 0, 0, 1)
+		get_tree().change_scene("res://LoseScreen.tscn")
+
 	$GUI/Dog1Label.text = "Dog 1:\n" + str($Dog1.cuteness)
 	$GUI/Dog2Label.text = "Dog 2:\n" + str($Dog2.cuteness)
 
@@ -41,6 +42,8 @@ func _randomize_cuteness():
 	var rand_cute2 = rng.randi_range(6, -6)
 	$Dog1.cuteness = rand_cute1
 	$Dog2.cuteness = rand_cute2
+
+
 	
 func _addPuppy():
 	var visDog3 = Sprite.new()
@@ -59,8 +62,9 @@ func _addPuppy():
 			pup_t = puppy_texture3
 	
 	visDog3.texture = pup_t
-	
+	visDog3.modulate.a = 0.5
 	visDog3.set_position(Vector2(rand_x, rand_y))
-	visDog3.scale.x = 0.063
-	visDog3.scale.y = 0.063
+	visDog3.scale.x = 0.1
+	visDog3.scale.y = 0.1
+	visDog3.set_modulate(Color(rng.randi_range(0,0.1),rng.randi_range(0,0.1),rng.randi_range(0,0.1)))
 	$VisualDogs.add_child(visDog3, true)

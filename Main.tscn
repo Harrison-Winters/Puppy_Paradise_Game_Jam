@@ -97,12 +97,15 @@ text = "Too Cute:  1500
 Too Ugly:  -500"
 
 [node name="Dog1" type="Node2D" parent="."]
+position = Vector2( 0, -2 )
 script = ExtResource( 5 )
 
 [node name="Dog2" type="Node2D" parent="."]
 script = ExtResource( 4 )
 
 [node name="VisualDogs" type="Node2D" parent="."]
+
+
 
 [connection signal="pressed" from="GUI/1Button" to="." method="_on_1Button_pressed"]
 [connection signal="pressed" from="GUI/2Button" to="." method="_on_2Button_pressed"]
