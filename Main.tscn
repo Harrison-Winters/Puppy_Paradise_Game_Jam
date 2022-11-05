@@ -40,7 +40,7 @@ text = "Cuteness Level:
 300"
 align = 1
 
-[node name="Dog1" type="Label" parent="GUI"]
+[node name="Dog1Label" type="Label" parent="GUI"]
 margin_left = 294.0
 margin_top = 101.0
 margin_right = 633.0
@@ -51,7 +51,7 @@ text = "Dog 1:
 500"
 align = 1
 
-[node name="Dog2" type="Label" parent="GUI"]
+[node name="Dog2Label" type="Label" parent="GUI"]
 margin_left = 401.0
 margin_top = 297.0
 margin_right = 535.0
@@ -79,12 +79,22 @@ custom_fonts/font = ExtResource( 2 )
 text = "Take Dog 2"
 
 [node name="BothButtons" type="Button" parent="GUI"]
-margin_left = 79.0
-margin_top = 490.0
-margin_right = 594.0
-margin_bottom = 547.0
+margin_left = 58.0
+margin_top = 489.0
+margin_right = 573.0
+margin_bottom = 546.0
 custom_fonts/font = ExtResource( 2 )
 text = "Take Both"
+
+[node name="WinLoseLabel" type="Label" parent="GUI"]
+margin_left = 657.0
+margin_top = 472.0
+margin_right = 991.0
+margin_bottom = 577.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Too Cute:  1000
+Too Ugly:  -1000"
 
 [node name="Dog1" type="Node2D" parent="."]
 script = ExtResource( 5 )
@@ -94,3 +104,4 @@ script = ExtResource( 4 )
 
 [connection signal="pressed" from="GUI/1Button" to="." method="_on_1Button_pressed"]
 [connection signal="pressed" from="GUI/2Button" to="." method="_on_2Button_pressed"]
+[connection signal="pressed" from="GUI/BothButtons" to="." method="_on_BothButtons_pressed"]

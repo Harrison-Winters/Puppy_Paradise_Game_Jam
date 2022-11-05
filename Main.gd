@@ -14,5 +14,8 @@ func _on_2Button_pressed():
 	store_cute = store_cute + $Dog2.cuteness
 	
 	
+func _on_BothButtons_pressed():
+	store_cute = store_cute + $Dog1.cuteness + $Dog2.cuteness
+	
 func _process(delta):
 	$GUI/CurrCute.text = "Cuteness \n" + str(store_cute)
