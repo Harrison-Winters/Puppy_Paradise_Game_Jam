@@ -98,6 +98,7 @@ text = "Too Cute:  1500
 Too Ugly:  -500"
 
 [node name="Dog1" type="Node2D" parent="."]
+position = Vector2( 0, -2 )
 script = ExtResource( 5 )
 
 [node name="Dog2" type="Node2D" parent="."]
@@ -106,13 +107,14 @@ script = ExtResource( 4 )
 [node name="VisualDogs" type="Node2D" parent="."]
 
 [node name="VisDog" type="Sprite" parent="VisualDogs"]
+self_modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 634, 67 )
-scale = Vector2( 0.063425, 0.063425 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 6 )
 
 [node name="VisDog2" type="Sprite" parent="VisualDogs"]
 position = Vector2( 737, 68 )
-scale = Vector2( 0.063425, 0.063425 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 6 )
 
 [connection signal="pressed" from="GUI/1Button" to="." method="_on_1Button_pressed"]

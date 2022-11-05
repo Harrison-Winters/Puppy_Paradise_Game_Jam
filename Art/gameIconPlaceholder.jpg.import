@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gameIconPlaceholder.jpg-0226cf09714f50191349d3c2b442103b.stex"
+path="res://.import/gameIconPlaceholder.jpg-ef37f1b95b593f90848c44b8649d9f42.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gameIconPlaceholder.jpg"
-dest_files=[ "res://.import/gameIconPlaceholder.jpg-0226cf09714f50191349d3c2b442103b.stex" ]
+source_file="res://Art/gameIconPlaceholder.jpg"
+dest_files=[ "res://.import/gameIconPlaceholder.jpg-ef37f1b95b593f90848c44b8649d9f42.stex" ]
 
 [params]
 

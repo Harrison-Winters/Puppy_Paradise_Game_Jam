@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://LoseScreen.gd" type="Script" id=3]
+[ext_resource path="res://Audio/LoseAudio.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
 font_data = ExtResource( 2 )
 
 [node name="LoseScreen" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -32,3 +35,8 @@ margin_right = 620.0
 margin_bottom = 432.0
 custom_fonts/font = ExtResource( 1 )
 text = "Restart"
+
+[node name="LoseAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
