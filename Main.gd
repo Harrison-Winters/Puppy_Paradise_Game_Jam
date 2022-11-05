@@ -77,3 +77,7 @@ func _addPuppy():
 	var rand_direct = nums[randi() % 2]
 	$VisualDogs.mov_array.push_back(rand_mov)
 	$VisualDogs.direc_array.push_back(rand_direct)
+
+# Cat Game Over
+func _on_CatTimer_timeout():
+	get_tree().change_scene("res://LoseScreen.tscn")
