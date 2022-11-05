@@ -7,7 +7,7 @@
 [ext_resource path="res://Dog1.gd" type="Script" id=5]
 [ext_resource path="res://VisualDogs.gd" type="Script" id=6]
 [ext_resource path="res://CatTimerLabel.gd" type="Script" id=7]
-[ext_resource path="res://Art/cat.png" type="Texture" id=8]
+[ext_resource path="res://Art/greycat1.png" type="Texture" id=8]
 [ext_resource path="res://Art/guy.png" type="Texture" id=9]
 [ext_resource path="res://Art/puppy1.png" type="Texture" id=10]
 [ext_resource path="res://Art/puppy2.png" type="Texture" id=11]
@@ -111,10 +111,10 @@ text = "Too Cute:  10
 Too Ugly:  -10"
 
 [node name="CatTimerLabel" type="Label" parent="GUI"]
-margin_left = 703.0
-margin_top = 26.0
-margin_right = 969.0
-margin_bottom = 106.0
+margin_left = 688.0
+margin_top = 24.0
+margin_right = 954.0
+margin_bottom = 104.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "Cat Timer:"
@@ -127,8 +127,8 @@ one_shot = true
 autostart = true
 
 [node name="CatSprite" type="Sprite" parent="GUI"]
-position = Vector2( 964, 88 )
-scale = Vector2( 0.249881, 0.291 )
+position = Vector2( 968, 64 )
+scale = Vector2( 0.0682737, 0.0795086 )
 texture = ExtResource( 8 )
 
 [node name="GuySprite" type="Sprite" parent="GUI"]

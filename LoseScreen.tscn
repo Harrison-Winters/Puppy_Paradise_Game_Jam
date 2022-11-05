@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://LoseScreen.gd" type="Script" id=3]
 [ext_resource path="res://Audio/LoseAudio.wav" type="AudioStream" id=4]
+[ext_resource path="res://Art/abandoned_store.jpg" type="Texture" id=5]
+[ext_resource path="res://Art/mediumbutton.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -18,25 +20,36 @@ anchor_bottom = 1.0
 margin_right = 1025.0
 margin_bottom = 602.0
 
-[node name="WinLabel" type="Label" parent="."]
-margin_left = 334.0
-margin_top = 249.0
-margin_right = 663.0
-margin_bottom = 354.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "You lose!"
-align = 1
+[node name="AbandonedStore" type="Sprite" parent="."]
+position = Vector2( 632, 384 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 5 )
 
 [node name="RestartButton" type="Button" parent="."]
-margin_left = 375.0
-margin_top = 375.0
-margin_right = 620.0
-margin_bottom = 432.0
+margin_left = 360.0
+margin_top = 312.0
+margin_right = 605.0
+margin_bottom = 369.0
 custom_fonts/font = ExtResource( 1 )
 text = "Restart"
 
 [node name="LoseAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 476, 184.75 )
+scale = Vector2( 1.80211, 1.16445 )
+texture = ExtResource( 6 )
+
+[node name="WinLabel" type="Label" parent="."]
+margin_left = 216.0
+margin_top = 96.0
+margin_right = 734.0
+margin_bottom = 255.0
+custom_fonts/font = SubResource( 1 )
+text = "You lose!
+
+Your Dogs were too Ugly"
+align = 1
 
 [connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]

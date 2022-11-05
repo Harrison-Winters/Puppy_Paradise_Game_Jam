@@ -39,7 +39,9 @@ func _on_BothButtons_pressed():
 	
 func _process(delta):
 	$GUI/CurrCute.text = "Cuteness \n" + str(store_cute)
-	if store_cute > max_cute or store_cute < min_cute:
+	if store_cute > max_cute:
+		get_tree().change_scene("res://LoseScreenTooCute.tscn")
+	elif store_cute < min_cute:
 		get_tree().change_scene("res://LoseScreen.tscn")
 
 	$GUI/Dog1Label.text = "Dog 1:\n" + str($Dog1.cuteness)
@@ -91,7 +93,7 @@ func _addPuppy():
 
 # Cat Game Over
 func _on_CatTimer_timeout():
-	get_tree().change_scene("res://LoseScreen.tscn")
+	get_tree().change_scene("res://CatLoseScreen.tscn")
 	
 # Set Random Puppy Sprites
 func _change_puppy_sprites():
