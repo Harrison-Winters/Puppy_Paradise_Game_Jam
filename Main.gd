@@ -4,10 +4,12 @@ var rng = RandomNumberGenerator.new()
 var store_cute = 0
 var min_cute = -10
 var max_cute = 10
-var puppy_texture = preload("res://art/dog_realistic.png")
-var puppy_texture2 = preload("res://art/puppy_realistic.png")
-var puppy_texture3 = preload("res://art/large_puppy.png")
-
+var vis_puppy_texture = preload("res://art/dog_realistic.png")
+var vis_puppy_texture2 = preload("res://art/puppy_realistic.png")
+var vis_puppy_texture3 = preload("res://art/large_puppy.png")
+var puppy_texture1 = preload("res://art/puppy1.png")
+var puppy_texture2 = preload("res://art/puppy2.png")
+var puppy_texture3 = preload("res://art/puppy3.png")
 func _ready():
 	rng.randomize()
 
@@ -15,12 +17,14 @@ func _on_1Button_pressed():
 	store_cute = store_cute + $Dog1.cuteness
 	_addPuppy()
 	_randomize_cuteness()
+	_change_puppy_sprites()
 	
 	
 func _on_2Button_pressed():
 	store_cute = store_cute + $Dog2.cuteness
 	_addPuppy()
 	_randomize_cuteness()
+	_change_puppy_sprites()
 	
 	
 func _on_BothButtons_pressed():
@@ -28,6 +32,7 @@ func _on_BothButtons_pressed():
 	_addPuppy()
 	_addPuppy()
 	_randomize_cuteness()
+	_change_puppy_sprites()
 	
 func _process(delta):
 	$GUI/CurrCute.text = "Cuteness \n" + str(store_cute)
@@ -38,28 +43,28 @@ func _process(delta):
 	$GUI/Dog2Label.text = "Dog 2:\n" + str($Dog2.cuteness)
 
 func _randomize_cuteness():
-	var rand_cute1 = rng.randi_range(6, -6)
-	var rand_cute2 = rng.randi_range(6, -6)
+	var rand_cute1 = rng.randi_range(8, -8)
+	var rand_cute2 = rng.randi_range(8, -8)
 	$Dog1.cuteness = rand_cute1
 	$Dog2.cuteness = rand_cute2
 
 
-	
+# Puts the puppies on screen
 func _addPuppy():
 	var visDog3 = Sprite.new()
 	var pup_t
 	
-	var rand_x = rng.randi_range(500, 1050)
+	var rand_x = rng.randi_range(20, 1000)
 	var rand_y = rng.randi_range(0, 600)
 	var rand_p = rng.randi_range(0, 2)
 	
 	match rand_p:
 		0:
-			pup_t = puppy_texture
+			pup_t = vis_puppy_texture
 		1:
-			pup_t = puppy_texture2
+			pup_t = vis_puppy_texture2
 		2:
-			pup_t = puppy_texture3
+			pup_t = vis_puppy_texture3
 	
 	visDog3.texture = pup_t
 	visDog3.modulate.a = 0.7
@@ -81,3 +86,33 @@ func _addPuppy():
 # Cat Game Over
 func _on_CatTimer_timeout():
 	get_tree().change_scene("res://LoseScreen.tscn")
+	
+# Set Random Puppy Sprites
+func _change_puppy_sprites():
+	var rand_s1 = rng.randi_range(0, 2)
+	var rand_s2 = rng.randi_range(0, 2)
+	
+	match rand_s1:
+		0:
+			$GUI/PuppySprite1.texture = puppy_texture1
+		1:
+			$GUI/PuppySprite1.texture = puppy_texture2
+		2:
+			$GUI/PuppySprite1.texture = puppy_texture3
+			
+	match rand_s2:
+		0:
+			$GUI/PuppySprite2.texture = puppy_texture1
+		1:
+			$GUI/PuppySprite2.texture = puppy_texture2
+		2:
+			$GUI/PuppySprite2.texture = puppy_texture3
+	
+	# Change the scale of the texture
+	$GUI/PuppySprite1.scale.x = 0.1
+	$GUI/PuppySprite1.scale.y = 0.1
+	$GUI/PuppySprite2.scale.x = 0.1
+	$GUI/PuppySprite2.scale.y = 0.1
+	
+	
+

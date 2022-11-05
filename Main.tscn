@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://VisualDogs.gd" type="Script" id=6]
 [ext_resource path="res://CatTimerLabel.gd" type="Script" id=7]
 [ext_resource path="res://Art/cat.png" type="Texture" id=8]
+[ext_resource path="res://Art/guy.png" type="Texture" id=9]
+[ext_resource path="res://Art/puppy1.png" type="Texture" id=10]
+[ext_resource path="res://Art/puppy2.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -33,10 +36,10 @@ margin_right = 1042.0
 margin_bottom = 614.0
 
 [node name="CurrCute" type="Label" parent="GUI"]
-margin_left = 665.0
-margin_top = 237.0
-margin_right = 994.0
-margin_bottom = 342.0
+margin_left = 700.0
+margin_top = 203.0
+margin_right = 1029.0
+margin_bottom = 308.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Cuteness Level:
@@ -44,10 +47,10 @@ text = "Cuteness Level:
 align = 1
 
 [node name="Dog1Label" type="Label" parent="GUI"]
-margin_left = 294.0
-margin_top = 101.0
-margin_right = 633.0
-margin_bottom = 206.0
+margin_left = 247.0
+margin_top = 474.0
+margin_right = 586.0
+margin_bottom = 579.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Dog 1:
@@ -55,10 +58,10 @@ text = "Dog 1:
 align = 1
 
 [node name="Dog2Label" type="Label" parent="GUI"]
-margin_left = 401.0
-margin_top = 297.0
-margin_right = 535.0
-margin_bottom = 402.0
+margin_left = 593.0
+margin_top = 472.0
+margin_right = 727.0
+margin_bottom = 577.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Dog 2:
@@ -66,38 +69,38 @@ text = "Dog 2:
 align = 1
 
 [node name="1Button" type="Button" parent="GUI"]
-margin_left = 48.0
-margin_top = 113.0
-margin_right = 293.0
-margin_bottom = 170.0
+margin_left = 27.0
+margin_top = 104.0
+margin_right = 272.0
+margin_bottom = 161.0
 custom_fonts/font = ExtResource( 2 )
 text = "Take Dog 1"
 
 [node name="2Button" type="Button" parent="GUI"]
-margin_left = 61.0
-margin_top = 311.0
-margin_right = 306.0
-margin_bottom = 368.0
+margin_left = 21.0
+margin_top = 230.0
+margin_right = 266.0
+margin_bottom = 287.0
 custom_fonts/font = ExtResource( 2 )
 text = "Take Dog 2"
 
 [node name="BothButtons" type="Button" parent="GUI"]
-margin_left = 58.0
-margin_top = 489.0
-margin_right = 573.0
-margin_bottom = 546.0
+margin_left = 23.0
+margin_top = 365.0
+margin_right = 269.0
+margin_bottom = 422.0
 custom_fonts/font = ExtResource( 2 )
 text = "Take Both"
 
 [node name="WinLoseLabel" type="Label" parent="GUI"]
-margin_left = 657.0
-margin_top = 472.0
-margin_right = 991.0
-margin_bottom = 577.0
+margin_left = 733.0
+margin_top = 362.0
+margin_right = 1025.0
+margin_bottom = 467.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
-text = "Too Cute:  1500
-Too Ugly:  -500"
+text = "Too Cute:  10
+Too Ugly:  -10"
 
 [node name="CatTimerLabel" type="Label" parent="GUI"]
 margin_left = 703.0
@@ -120,6 +123,29 @@ position = Vector2( 964, 88 )
 scale = Vector2( 0.249881, 0.291 )
 texture = ExtResource( 8 )
 
+[node name="DoorButton" type="Button" parent="GUI"]
+margin_left = 28.0
+margin_top = 472.0
+margin_right = 271.0
+margin_bottom = 529.0
+custom_fonts/font = ExtResource( 2 )
+text = "Close Door"
+
+[node name="GuySprite" type="Sprite" parent="GUI"]
+position = Vector2( 525, 224 )
+scale = Vector2( 0.584291, 0.584291 )
+texture = ExtResource( 9 )
+
+[node name="PuppySprite1" type="Sprite" parent="GUI"]
+position = Vector2( 402, 382 )
+scale = Vector2( 0.104583, 0.104583 )
+texture = ExtResource( 10 )
+
+[node name="PuppySprite2" type="Sprite" parent="GUI"]
+position = Vector2( 646, 399 )
+scale = Vector2( 0.102604, 0.102604 )
+texture = ExtResource( 11 )
+
 [node name="Dog1" type="Node2D" parent="."]
 position = Vector2( 0, -2 )
 script = ExtResource( 5 )
@@ -128,6 +154,7 @@ script = ExtResource( 5 )
 script = ExtResource( 4 )
 
 [node name="VisualDogs" type="Node2D" parent="."]
+position = Vector2( 255, 170 )
 script = ExtResource( 6 )
 
 [connection signal="pressed" from="GUI/1Button" to="." method="_on_1Button_pressed"]
