@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Art/guy.png" type="Texture" id=9]
 [ext_resource path="res://Art/puppy1.png" type="Texture" id=10]
 [ext_resource path="res://Art/puppy2.png" type="Texture" id=11]
+[ext_resource path="res://Audio/Meow.mp3" type="AudioStream" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -125,6 +126,9 @@ script = ExtResource( 7 )
 wait_time = 60.0
 one_shot = true
 autostart = true
+
+[node name="MeowAudio" type="AudioStreamPlayer2D" parent="GUI/CatTimerLabel/CatTimer"]
+stream = ExtResource( 12 )
 
 [node name="CatSprite" type="Sprite" parent="GUI"]
 position = Vector2( 964, 88 )
