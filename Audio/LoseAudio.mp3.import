@@ -11,5 +11,5 @@ dest_files=[ "res://.import/LoseAudio.mp3-bc3d9880c1318110868bdf93f2ce50b4.mp3st
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

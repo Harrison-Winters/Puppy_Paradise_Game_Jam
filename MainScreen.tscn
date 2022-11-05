@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=2]
 [ext_resource path="res://MainScreen.gd" type="Script" id=3]
+[ext_resource path="res://Audio/MainAudio.mp3" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -58,6 +59,8 @@ text = "Puppy Paradise"
 align = 1
 
 [node name="MainMenuAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer2/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Credits" to="." method="_on_Credits_pressed"]
