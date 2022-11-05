@@ -1,4 +1,4 @@
 extends Node2D
 
-var cuteness = -700
+var cuteness = -5
 

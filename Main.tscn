@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Main.gd" type="Script" id=3]
 [ext_resource path="res://Dog2.gd" type="Script" id=4]
 [ext_resource path="res://Dog1.gd" type="Script" id=5]
-[ext_resource path="res://Art/dog_realistic.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -104,16 +103,6 @@ script = ExtResource( 5 )
 script = ExtResource( 4 )
 
 [node name="VisualDogs" type="Node2D" parent="."]
-
-[node name="VisDog" type="Sprite" parent="VisualDogs"]
-position = Vector2( 634, 67 )
-scale = Vector2( 0.063425, 0.063425 )
-texture = ExtResource( 6 )
-
-[node name="VisDog2" type="Sprite" parent="VisualDogs"]
-position = Vector2( 737, 68 )
-scale = Vector2( 0.063425, 0.063425 )
-texture = ExtResource( 6 )
 
 [connection signal="pressed" from="GUI/1Button" to="." method="_on_1Button_pressed"]
 [connection signal="pressed" from="GUI/2Button" to="." method="_on_2Button_pressed"]

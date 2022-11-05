@@ -1,9 +1,9 @@
 extends Node2D
 
 var rng = RandomNumberGenerator.new()
-var store_cute = 300
-var min_cute = -500
-var max_cute = 1500
+var store_cute = 0
+var min_cute = -10
+var max_cute = 10
 var puppy_texture = preload("res://art/dog_realistic.png")
 var puppy_texture2 = preload("res://art/puppy_realistic.png")
 var puppy_texture3 = preload("res://art/large_puppy.png")
@@ -14,22 +14,33 @@ func _ready():
 func _on_1Button_pressed():
 	store_cute = store_cute + $Dog1.cuteness
 	_addPuppy()
+	_randomize_cuteness()
 	
 	
 func _on_2Button_pressed():
 	store_cute = store_cute + $Dog2.cuteness
 	_addPuppy()
+	_randomize_cuteness()
 	
 	
 func _on_BothButtons_pressed():
 	store_cute = store_cute + $Dog1.cuteness + $Dog2.cuteness
 	_addPuppy()
 	_addPuppy()
+	_randomize_cuteness()
 	
 func _process(delta):
 	$GUI/CurrCute.text = "Cuteness \n" + str(store_cute)
 	if store_cute > max_cute or store_cute < min_cute:
 		$GUI/Background.color = Color(1, 0, 0, 1)
+	$GUI/Dog1Label.text = "Dog 1:\n" + str($Dog1.cuteness)
+	$GUI/Dog2Label.text = "Dog 2:\n" + str($Dog2.cuteness)
+
+func _randomize_cuteness():
+	var rand_cute1 = rng.randi_range(6, -6)
+	var rand_cute2 = rng.randi_range(6, -6)
+	$Dog1.cuteness = rand_cute1
+	$Dog2.cuteness = rand_cute2
 	
 func _addPuppy():
 	var visDog3 = Sprite.new()
