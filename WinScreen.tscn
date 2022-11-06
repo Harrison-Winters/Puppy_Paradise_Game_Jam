@@ -3,7 +3,7 @@
 [ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://WinScreen.gd" type="Script" id=2]
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Audio/WinAudio.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/Winning Sound (mp3).mp3" type="AudioStream" id=4]
 [ext_resource path="res://Art/puppy3.png" type="Texture" id=5]
 [ext_resource path="res://Art/puppy1.png" type="Texture" id=6]
 [ext_resource path="res://Art/puppy2.png" type="Texture" id=7]
@@ -24,6 +24,7 @@ color = Color( 0.494118, 0.866667, 0.388235, 1 )
 
 [node name="WinAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+autoplay = true
 
 [node name="Puppy1" type="Sprite" parent="."]
 position = Vector2( 216, 440 )
