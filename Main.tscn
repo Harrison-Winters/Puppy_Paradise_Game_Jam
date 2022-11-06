@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Fonts/Milky Coffee.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://Audio/Click.mp3" type="AudioStream" id=17]
 [ext_resource path="res://mediumBtn.tres" type="Theme" id=18]
+[ext_resource path="res://Fonts/Ubuntu-Bold.ttf" type="DynamicFontData" id=19]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -77,11 +78,68 @@ outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 16 )
 
+[sub_resource type="Animation" id=12]
+resource_name = "Popups"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Popup/Control2:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 2.8, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 139, -104 ), Vector2( 139, 75 ), Vector2( 139, 75 ), Vector2( 139, -104 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Popup/Control:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.9, 4.1, 5.8, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 141, -83 ), Vector2( 141, -83 ), Vector2( 141, 10 ), Vector2( 141, 10 ), Vector2( 141, -83 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Popup/Control2:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 368, -108 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Popup/Control:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 141, -83 ) ]
+}
+
+[sub_resource type="DynamicFont" id=14]
+size = 26
+outline_size = 2
+font_data = ExtResource( 19 )
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
-
-[node name="Tutorial" type="Node2D" parent="."]
-position = Vector2( 0, -1 )
 
 [node name="GUI" type="Node2D" parent="."]
 
@@ -92,8 +150,8 @@ margin_right = 1042.0
 margin_bottom = 614.0
 
 [node name="BlankShop" type="Sprite" parent="GUI/Background"]
-position = Vector2( 422, 314 )
-scale = Vector2( 0.423, 0.371 )
+position = Vector2( 560, 327 )
+scale = Vector2( 0.518425, 0.454694 )
 texture = ExtResource( 14 )
 
 [node name="CurrCute" type="Label" parent="GUI"]
@@ -198,6 +256,70 @@ autostart = true
 [node name="MeowAudio" type="AudioStreamPlayer2D" parent="GUI/CatTimerLabel/CatTimer"]
 stream = ExtResource( 12 )
 volume_db = -10.0
+
+[node name="CatApproach" type="Node2D" parent="GUI"]
+position = Vector2( 0, -1 )
+
+[node name="Popup" type="AnimationPlayer" parent="GUI/CatApproach"]
+anims/Popups = SubResource( 12 )
+anims/RESET = SubResource( 13 )
+
+[node name="Control2" type="Control" parent="GUI/CatApproach/Popup"]
+margin_left = 368.0
+margin_top = -108.0
+margin_right = 408.0
+margin_bottom = -67.0
+
+[node name="ColorRect" type="ColorRect" parent="GUI/CatApproach/Popup/Control2"]
+margin_left = -125.0
+margin_top = -65.0
+margin_right = 308.0
+margin_bottom = 8.0
+color = Color( 1, 1, 1, 0.65 )
+
+[node name="Label" type="Label" parent="GUI/CatApproach/Popup/Control2/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -4.0
+margin_top = 7.0
+margin_right = -1.0
+margin_bottom = -3.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 14 )
+text = "A cat's coming in 15s... 
+If your dogs see it, they'll run off!"
+align = 1
+
+[node name="Control" type="Control" parent="GUI/CatApproach/Popup"]
+margin_left = 141.0
+margin_top = -83.0
+margin_right = 181.0
+margin_bottom = -43.0
+
+[node name="ColorRect2" type="ColorRect" parent="GUI/CatApproach/Popup/Control"]
+anchor_left = -6.325
+anchor_top = -1.325
+anchor_right = 9.85
+anchor_bottom = 1.725
+margin_left = 119.0
+margin_top = 51.0
+margin_right = -44.0
+margin_bottom = -6.0
+color = Color( 1, 1, 1, 0.65 )
+
+[node name="Label" type="Label" parent="GUI/CatApproach/Popup/Control/ColorRect2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_right = -6.0
+margin_bottom = -2.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 14 )
+text = "Closing the door keeps your pups 
+from running, but stops higher scores!"
+align = 1
 
 [node name="CatSprite" type="Sprite" parent="GUI"]
 position = Vector2( 968, 64 )

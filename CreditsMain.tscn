@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Fonts/Milky Coffee.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Audio/MainAudio.mp3" type="AudioStream" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Art/BlankShop.png" type="Texture" id=6]
 [ext_resource path="res://Audio/Menu Song (mp3).mp3" type="AudioStream" id=7]
 [ext_resource path="res://Audio/bark.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Audio/Click.mp3" type="AudioStream" id=9]
 
 [sub_resource type="DynamicFont" id=3]
 size = 20
@@ -142,6 +143,7 @@ custom_fonts/font = SubResource( 8 )
 text = "BACK"
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
 autoplay = true
 
 [node name="MainMenuAudio" type="AudioStreamPlayer2D" parent="."]

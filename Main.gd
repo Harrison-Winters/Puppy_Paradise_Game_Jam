@@ -133,4 +133,5 @@ func _on_DoorButton_pressed():
 
 
 func _on_CatTimerLabel_cat_approaching():
+	$GUI/CatApproach/Popup.play("Popups")
 	$MainAudio.set_pitch_scale(2)
