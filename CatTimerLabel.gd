@@ -6,7 +6,7 @@ func _process(delta):
 	
 	if int($CatTimer.time_left) % 60 == 15:
 		$CatTimer/MeowAudio.play()
-		$MainAudio.pitch_scale(4)
+		emit_signal("cat_approaching")
 
 func _ready():
 	pass 

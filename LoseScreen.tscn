@@ -1,15 +1,112 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://LoseScreen.gd" type="Script" id=3]
 [ext_resource path="res://Audio/Losing Sound (mp3).mp3" type="AudioStream" id=4]
 [ext_resource path="res://Art/abandoned_store.jpg" type="Texture" id=5]
-[ext_resource path="res://Art/mediumbutton.png" type="Texture" id=6]
+[ext_resource path="res://Audio/Click.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Fonts/Milky Coffee.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Art/bigbutton.png" type="Texture" id=9]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="Animation" id=2]
+tracks/0/type = "value"
+tracks/0/path = NodePath("ShakeAnim/Pivot:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -5.0, 0.0, 5.0, 0.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Shake"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ShakeAnim/Pivot:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 3.0, 0.0, -4.0, 0.0 ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 60
+outline_size = 4
+outline_color = Color( 0, 0.501961, 0.584314, 1 )
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 500, 398 )
+modulate_color = Color( 0.733333, 0.733333, 0.733333, 1 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 500, 398 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 500, 398 )
+
+[sub_resource type="Animation" id=8]
+tracks/0/type = "value"
+tracks/0/path = NodePath("LoseAnim/LosePivot:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LoseAnim/LosePivot:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Shake"
+tracks/0/type = "value"
+tracks/0/path = NodePath("LoseAnim/LosePivot:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=10]
+size = 80
+outline_size = 10
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=11]
 size = 45
-font_data = ExtResource( 2 )
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 8 )
 
 [node name="LoseScreen" type="Node2D"]
 script = ExtResource( 3 )
@@ -25,31 +122,80 @@ position = Vector2( 632, 384 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 5 )
 
-[node name="RestartButton" type="Button" parent="."]
-margin_left = 360.0
-margin_top = 312.0
-margin_right = 605.0
-margin_bottom = 369.0
-custom_fonts/font = ExtResource( 1 )
-text = "Restart"
+[node name="ColorRect2" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0.36 )
+margin_left = 225.0
+margin_top = 182.0
+margin_right = 792.0
+margin_bottom = 330.0
 
 [node name="LoseAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 476, 184.75 )
-scale = Vector2( 1.80211, 1.16445 )
-texture = ExtResource( 6 )
+[node name="ShakeAnim" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/Shake = SubResource( 3 )
 
-[node name="WinLabel" type="Label" parent="."]
-margin_left = 216.0
-margin_top = 96.0
-margin_right = 734.0
-margin_bottom = 255.0
-custom_fonts/font = SubResource( 1 )
-text = "You lose!
+[node name="Pivot" type="Control" parent="ShakeAnim"]
+margin_left = 501.0
+margin_top = 496.0
+margin_right = 502.0
+margin_bottom = 497.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-Your Dogs were too Ugly"
+[node name="RestartButton" type="Button" parent="ShakeAnim/Pivot"]
+margin_left = -222.0
+margin_top = -57.0
+margin_right = 228.0
+margin_bottom = 73.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Click" type="AudioStreamPlayer" parent="ShakeAnim/Pivot/RestartButton"]
+stream = ExtResource( 7 )
+
+[node name="LoseAnim" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 8 )
+anims/Shake = SubResource( 9 )
+
+[node name="LosePivot" type="Control" parent="LoseAnim"]
+margin_left = 496.0
+margin_top = 51.0
+margin_right = 536.0
+margin_bottom = 91.0
+rect_scale = Vector2( 1.5, 1.5 )
+
+[node name="LoseLabel" type="Label" parent="LoseAnim/LosePivot"]
+anchor_left = 0.075
+anchor_top = 1.325
+anchor_right = 0.8
+anchor_bottom = 1.325
+margin_left = -194.333
+margin_top = 9.66666
+margin_right = 233.667
+margin_bottom = 114.667
+custom_colors/font_color = Color( 0.94902, 0.94902, 0.94902, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Game Over..."
 align = 1
 
-[connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
+[node name="WinLabel" type="Label" parent="."]
+margin_left = 244.0
+margin_top = 206.0
+margin_right = 768.0
+margin_bottom = 307.0
+custom_fonts/font = SubResource( 11 )
+text = "Your dogs aren't cute!
+Shop abandoned..."
+align = 1
+
+[connection signal="pressed" from="ShakeAnim/Pivot/RestartButton" to="." method="_on_RestartButton_pressed"]

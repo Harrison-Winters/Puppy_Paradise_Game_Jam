@@ -80,6 +80,9 @@ font_data = ExtResource( 16 )
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
 
+[node name="Tutorial" type="Node2D" parent="."]
+position = Vector2( 0, -1 )
+
 [node name="GUI" type="Node2D" parent="."]
 
 [node name="Background" type="ColorRect" parent="GUI"]
@@ -192,9 +195,6 @@ wait_time = 60.0
 one_shot = true
 autostart = true
 
-[node name="MainAudio" type="AudioStreamPlayer" parent="GUI/CatTimerLabel/CatTimer"]
-stream = ExtResource( 13 )
-
 [node name="MeowAudio" type="AudioStreamPlayer2D" parent="GUI/CatTimerLabel/CatTimer"]
 stream = ExtResource( 12 )
 volume_db = -10.0
@@ -235,8 +235,12 @@ script = ExtResource( 6 )
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
 
+[node name="MainAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
 [connection signal="pressed" from="GUI/DoorButton" to="." method="_on_DoorButton_pressed"]
 [connection signal="pressed" from="GUI/1Button" to="." method="_on_1Button_pressed"]
 [connection signal="pressed" from="GUI/2Button" to="." method="_on_2Button_pressed"]
 [connection signal="pressed" from="GUI/BothButtons" to="." method="_on_BothButtons_pressed"]
+[connection signal="cat_approaching" from="GUI/CatTimerLabel" to="." method="_on_CatTimerLabel_cat_approaching"]
 [connection signal="timeout" from="GUI/CatTimerLabel/CatTimer" to="." method="_on_CatTimer_timeout"]

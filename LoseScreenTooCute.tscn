@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://LoseScreenTooCute.gd" type="Script" id=1]
 [ext_resource path="res://Audio/Click.mp3" type="AudioStream" id=2]
@@ -7,9 +7,35 @@
 [ext_resource path="res://Art/imgbin_cartoon-comics-explosion-png.png" type="Texture" id=5]
 [ext_resource path="res://Art/bigbutton.png" type="Texture" id=6]
 
-[sub_resource type="DynamicFont" id=1]
-size = 45
-font_data = ExtResource( 3 )
+[sub_resource type="Animation" id=11]
+resource_name = "Explode"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 tracks/0/type = "value"
@@ -59,6 +85,59 @@ region_rect = Rect2( 0, 0, 500, 398 )
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 500, 398 )
 
+[sub_resource type="Animation" id=8]
+tracks/0/type = "value"
+tracks/0/path = NodePath("LoseAnim/LosePivot:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LoseAnim/LosePivot:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Shake"
+tracks/0/type = "value"
+tracks/0/path = NodePath("LoseAnim/LosePivot:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=10]
+size = 80
+outline_size = 10
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 45
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
 [node name="LoseScreenTooCute" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -71,21 +150,21 @@ margin_right = 1160.0
 margin_bottom = 664.0
 color = Color( 0.952941, 0.835294, 0.956863, 1 )
 
-[node name="CuteExplosion" type="Sprite" parent="."]
-position = Vector2( 544, 128 )
+[node name="Control" type="Control" parent="."]
+margin_left = 513.0
+margin_top = 247.0
+margin_right = 553.0
+margin_bottom = 287.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+
+[node name="CuteExplosion" type="Sprite" parent="Control"]
+position = Vector2( 31, -119 )
 scale = Vector2( 1.73, 1.53 )
 texture = ExtResource( 5 )
 
-[node name="WinLabel" type="Label" parent="."]
-margin_left = 256.0
-margin_top = 144.0
-margin_right = 780.0
-margin_bottom = 357.0
-custom_fonts/font = SubResource( 1 )
-text = "You lose!
-Cuteness overload...
-Your dogs were too cute!"
-align = 1
+[node name="Explode" type="AnimationPlayer" parent="."]
+anims/Explode = SubResource( 11 )
+anims/RESET = SubResource( 12 )
 
 [node name="ShakeAnim" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
@@ -96,6 +175,7 @@ margin_left = 501.0
 margin_top = 496.0
 margin_right = 502.0
 margin_bottom = 497.0
+rect_rotation = -5.0
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -117,5 +197,46 @@ __meta__ = {
 
 [node name="Click" type="AudioStreamPlayer" parent="ShakeAnim/Pivot/RestartButton"]
 stream = ExtResource( 2 )
+
+[node name="LoseAnim" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 8 )
+anims/Shake = SubResource( 9 )
+
+[node name="LosePivot" type="Control" parent="LoseAnim"]
+margin_left = 496.0
+margin_top = 51.0
+margin_right = 536.0
+margin_bottom = 91.0
+rect_scale = Vector2( 1.5, 1.5 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LoseLabel" type="Label" parent="LoseAnim/LosePivot"]
+anchor_left = 0.075
+anchor_top = 1.325
+anchor_right = 0.8
+anchor_bottom = 1.325
+margin_left = -194.333
+margin_top = 9.66666
+margin_right = 233.667
+margin_bottom = 114.667
+custom_colors/font_color = Color( 0.94902, 0.94902, 0.94902, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Game Over..."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="WinLabel" type="Label" parent="."]
+margin_left = 260.0
+margin_top = 199.0
+margin_right = 784.0
+margin_bottom = 412.0
+custom_fonts/font = SubResource( 1 )
+text = "Exploded!
+Your dogs were too cute!"
+align = 1
 
 [connection signal="pressed" from="ShakeAnim/Pivot/RestartButton" to="." method="_on_RestartButton_pressed"]

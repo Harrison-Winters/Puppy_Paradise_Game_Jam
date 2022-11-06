@@ -13,7 +13,7 @@ var puppy_texture3 = preload("res://art/puppy3.png")
 #var global = get_tree().get_node("Global")
 
 func _ready():
-	$GUI/CatTimerLabel/CatTimer/MainAudio.play()
+	$MainAudio.play()
 	rng.randomize()
 	Global.puppy_total = 0
 
@@ -130,3 +130,7 @@ func _change_puppy_sprites():
 func _on_DoorButton_pressed():
 	$Click.play()
 	get_tree().change_scene("res://WinScreen.tscn")
+
+
+func _on_CatTimerLabel_cat_approaching():
+	$MainAudio.set_pitch_scale(2)

@@ -2,6 +2,9 @@ extends Node2D
 
 func _ready():
 	$LoseAudio.play()
+	$ShakeAnim.play("Shake")
+	$LoseAnim.play("Shake")
+	$Explode.play("Explode")
 	var t = Timer.new()
 	t.set_wait_time(3)
 	t.set_one_shot(true)
