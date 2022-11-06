@@ -77,8 +77,8 @@ func _addPuppy():
 	var visDog3 = Sprite.new()
 	var pup_t
 	
-	var rand_x = rng.randi_range(20, 1000)
-	var rand_y = rng.randi_range(0, 600)
+	var rand_x = rng.randi_range(20, 300)
+	var rand_y = rng.randi_range(1, 300)
 	var rand_p = rng.randi_range(0, 2)
 	
 	match rand_p:
