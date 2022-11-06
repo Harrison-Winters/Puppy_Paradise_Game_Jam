@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=2]
@@ -42,17 +42,23 @@ outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 16 )
 
+[sub_resource type="StyleBoxEmpty" id=15]
+
 [sub_resource type="DynamicFont" id=10]
 size = 40
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 16 )
 
+[sub_resource type="StyleBoxEmpty" id=16]
+
 [sub_resource type="DynamicFont" id=11]
 size = 40
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 16 )
+
+[sub_resource type="StyleBoxEmpty" id=17]
 
 [sub_resource type="Animation" id=12]
 resource_name = "Popups"
@@ -142,6 +148,8 @@ outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 16 )
 
+[sub_resource type="StyleBoxEmpty" id=18]
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -159,21 +167,22 @@ scale = Vector2( 0.518425, 0.454694 )
 texture = ExtResource( 14 )
 
 [node name="CurrCute" type="Label" parent="GUI"]
-margin_left = 698.0
-margin_top = 196.0
-margin_right = 1027.0
-margin_bottom = 301.0
+margin_left = 685.0
+margin_top = 152.0
+margin_right = 1014.0
+margin_bottom = 296.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "Cuteness
+text = "Total
+Cuteness
 300"
 align = 1
 
 [node name="Dog1Label" type="Label" parent="GUI"]
 margin_left = 211.0
-margin_top = 495.0
+margin_top = 496.0
 margin_right = 550.0
-margin_bottom = 600.0
+margin_bottom = 601.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Dog 1:
@@ -199,6 +208,7 @@ margin_bottom = 202.0
 theme = ExtResource( 18 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 9 )
+custom_styles/focus = SubResource( 15 )
 text = "Take Dog 1"
 
 [node name="2Button" type="Button" parent="GUI"]
@@ -209,6 +219,7 @@ margin_bottom = 306.0
 theme = ExtResource( 18 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 10 )
+custom_styles/focus = SubResource( 16 )
 text = "Take Dog 2"
 
 [node name="BothButtons" type="Button" parent="GUI"]
@@ -219,6 +230,7 @@ margin_bottom = 402.0
 theme = ExtResource( 18 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 11 )
+custom_styles/focus = SubResource( 17 )
 text = "Take Both"
 
 [node name="WinLoseLabel" type="Label" parent="GUI"]
@@ -326,8 +338,8 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 9 )
 
 [node name="DoorClosed" type="Sprite" parent="GUI/GuySprite"]
-position = Vector2( 1255, 850 )
-scale = Vector2( 1.39721, 1.15961 )
+position = Vector2( 2195, 854.999 )
+scale = Vector2( -1.397, 1.16 )
 texture = ExtResource( 22 )
 
 [node name="CatSprite" type="Sprite" parent="GUI"]
@@ -346,13 +358,14 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 10 )
 
 [node name="DoorButton" type="Button" parent="GUI"]
-margin_left = 740.0
+margin_left = 739.0
 margin_top = 376.0
-margin_right = 972.0
+margin_right = 971.0
 margin_bottom = 468.0
 theme = SubResource( 7 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 8 )
+custom_styles/focus = SubResource( 18 )
 text = "Close Door"
 
 [node name="PuppySprite2" type="Sprite" parent="GUI"]

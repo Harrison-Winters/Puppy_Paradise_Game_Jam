@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://LoseScreen.gd" type="Script" id=3]
 [ext_resource path="res://Audio/Losing Sound (mp3).mp3" type="AudioStream" id=4]
@@ -50,6 +50,8 @@ modulate_color = Color( 0.733333, 0.733333, 0.733333, 1 )
 [sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 9 )
 region_rect = Rect2( 0, 0, 500, 398 )
+
+[sub_resource type="StyleBoxEmpty" id=12]
 
 [sub_resource type="StyleBoxTexture" id=7]
 texture = ExtResource( 9 )
@@ -154,6 +156,7 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 5 )
 custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 12 )
 custom_styles/normal = SubResource( 7 )
 text = "Restart"
 __meta__ = {
