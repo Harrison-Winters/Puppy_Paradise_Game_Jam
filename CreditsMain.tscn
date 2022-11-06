@@ -91,8 +91,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="CreditsAudio" type="AudioStreamPlayer2D" parent="VBoxContainer2/VBoxContainer"]
-position = Vector2( -492, -280 )
+[node name="CreditsAudio" type="AudioStreamPlayer" parent="VBoxContainer2/VBoxContainer"]
 stream = ExtResource( 2 )
 
 [node name="Names" type="Label" parent="VBoxContainer2/VBoxContainer"]
@@ -146,7 +145,7 @@ text = "BACK"
 stream = ExtResource( 9 )
 autoplay = true
 
-[node name="MainMenuAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="MainMenuAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
 

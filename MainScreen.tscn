@@ -340,7 +340,7 @@ custom_styles/pressed = SubResource( 11 )
 custom_styles/normal = SubResource( 12 )
 text = "Quit"
 
-[node name="MainMenuAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="MainMenuAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
 

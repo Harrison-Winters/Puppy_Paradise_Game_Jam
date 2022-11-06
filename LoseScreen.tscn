@@ -129,7 +129,7 @@ margin_top = 182.0
 margin_right = 792.0
 margin_bottom = 330.0
 
-[node name="LoseAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="LoseAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 
 [node name="ShakeAnim" type="AnimationPlayer" parent="."]
