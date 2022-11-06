@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=2]
@@ -24,10 +24,18 @@
 [ext_resource path="res://Art/DoorClosed.png" type="Texture" id=22]
 [ext_resource path="res://Audio/bell.mp3" type="AudioStream" id=23]
 [ext_resource path="res://Audio/bark.mp3" type="AudioStream" id=24]
+[ext_resource path="res://Fonts/Candy Beans.otf" type="DynamicFontData" id=25]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 45
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_bottom = -13
+font_data = ExtResource( 25 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 45
@@ -151,6 +159,11 @@ font_data = ExtResource( 16 )
 
 [sub_resource type="StyleBoxEmpty" id=18]
 
+[sub_resource type="Shader" id=19]
+
+[sub_resource type="ShaderMaterial" id=20]
+shader = SubResource( 19 )
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -179,26 +192,76 @@ Cuteness
 300"
 align = 1
 
+[node name="GuySprite" type="Sprite" parent="GUI"]
+position = Vector2( 512, 290 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 9 )
+
+[node name="DoorClosed" type="Sprite" parent="GUI/GuySprite"]
+position = Vector2( 2195, 784.973 )
+scale = Vector2( -1.397, 1.24063 )
+texture = ExtResource( 22 )
+
+[node name="Table" type="Sprite" parent="GUI"]
+position = Vector2( 496, 435 )
+scale = Vector2( 0.7, 0.8 )
+texture = ExtResource( 20 )
+
+[node name="PuppySprite1" type="Sprite" parent="GUI"]
+position = Vector2( 376, 352 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 10 )
+
+[node name="WhiteOval2" type="Sprite" parent="GUI"]
+position = Vector2( 628, 527.5 )
+scale = Vector2( 0.5, 0.390351 )
+texture = ExtResource( 21 )
+
+[node name="WhiteOval3" type="Sprite" parent="GUI"]
+position = Vector2( 369, 529 )
+scale = Vector2( 0.50266, 0.356889 )
+texture = ExtResource( 21 )
+
+[node name="Dog1Val" type="Label" parent="GUI"]
+margin_left = 33.0
+margin_top = 453.0
+margin_right = 709.0
+margin_bottom = 588.0
+custom_colors/font_color = Color( 0.772549, 0.952941, 1, 1 )
+custom_fonts/font = SubResource( 21 )
+text = "Dog 1:"
+align = 1
+
 [node name="Dog1Label" type="Label" parent="GUI"]
-margin_left = 211.0
-margin_top = 496.0
-margin_right = 550.0
-margin_bottom = 601.0
+margin_left = 202.0
+margin_top = 452.0
+margin_right = 541.0
+margin_bottom = 557.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "Dog 1:
+text = "
 500"
 align = 1
 
 [node name="Dog2Label" type="Label" parent="GUI"]
-margin_left = 577.0
-margin_top = 495.0
-margin_right = 711.0
-margin_bottom = 600.0
+margin_left = 564.0
+margin_top = 450.0
+margin_right = 698.0
+margin_bottom = 555.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "Dog 2:
+text = "
 -700"
+align = 1
+
+[node name="Dog2Val" type="Label" parent="GUI/Dog2Label"]
+margin_left = -271.0
+margin_top = 5.0
+margin_right = 405.0
+margin_bottom = 140.0
+custom_colors/font_color = Color( 0.772549, 0.952941, 1, 1 )
+custom_fonts/font = SubResource( 21 )
+text = "Dog 2:"
 align = 1
 
 [node name="1Button" type="Button" parent="GUI"]
@@ -235,14 +298,14 @@ custom_styles/focus = SubResource( 17 )
 text = "Take Both"
 
 [node name="WinLoseLabel" type="Label" parent="GUI"]
-margin_left = 368.0
-margin_top = 20.0
-margin_right = 663.0
-margin_bottom = 125.0
+margin_left = 578.0
+margin_top = 24.0
+margin_right = 657.0
+margin_bottom = 129.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
-text = "Too Cute:  10
-Too Ugly:  -10"
+text = " 10
+-10"
 
 [node name="WhiteOval" type="Sprite" parent="GUI"]
 position = Vector2( 840, 64.5 )
@@ -333,31 +396,6 @@ text = "Closing the door keeps your pups
 from running, but stops higher scores!"
 align = 1
 
-[node name="GuySprite" type="Sprite" parent="GUI"]
-position = Vector2( 512, 290 )
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 9 )
-
-[node name="DoorClosed" type="Sprite" parent="GUI/GuySprite"]
-position = Vector2( 2195, 854.999 )
-scale = Vector2( -1.397, 1.16 )
-texture = ExtResource( 22 )
-
-[node name="CatSprite" type="Sprite" parent="GUI"]
-position = Vector2( 968, 68 )
-scale = Vector2( 0.068, 0.068 )
-texture = ExtResource( 8 )
-
-[node name="Table" type="Sprite" parent="GUI"]
-position = Vector2( 496, 435 )
-scale = Vector2( 0.7, 0.8 )
-texture = ExtResource( 20 )
-
-[node name="PuppySprite1" type="Sprite" parent="GUI"]
-position = Vector2( 376, 352 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 10 )
-
 [node name="DoorButton" type="Button" parent="GUI"]
 margin_left = 739.0
 margin_top = 376.0
@@ -373,6 +411,26 @@ text = "Close Door"
 position = Vector2( 648, 354 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 11 )
+
+[node name="CreditsLabel" type="Label" parent="GUI"]
+margin_left = 142.0
+margin_top = 18.0
+margin_right = 818.0
+margin_bottom = 153.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 21 )
+text = "Too Cute:
+Too Ugly:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CatSprite" type="Sprite" parent="."]
+material = SubResource( 20 )
+position = Vector2( 968, 68 )
+scale = Vector2( 0.068, 0.068 )
+texture = ExtResource( 8 )
 
 [node name="Dog1" type="Node2D" parent="."]
 position = Vector2( 0, -2 )

@@ -37,6 +37,13 @@ func _dog_Bark_Loop():
 	b.start()
 	yield(b, "timeout")
 	$Bark.play()
+	var bc = Timer.new()
+	bc.set_wait_time(1)
+	bc.set_one_shot(true)
+	self.add_child(t)
+	bc.start()
+	yield(bc, "timeout")
+	
 	_dog_Bark_Loop()
 	
 
@@ -71,14 +78,14 @@ func _on_BothButtons_pressed():
 	$ResetTimer.start()
 	
 func _process(delta):
-	$GUI/CurrCute.text = "Total \nCuteness \n" + str(store_cute)
+	$GUI/CurrCute.text = "\n" + str(store_cute)
 	if store_cute > max_cute:
 		get_tree().change_scene("res://LoseScreenTooCute.tscn")
 	elif store_cute < min_cute:
 		get_tree().change_scene("res://LoseScreen.tscn")
 
-	$GUI/Dog1Label.text = "Dog 1:\n" + str($Dog1.cuteness)
-	$GUI/Dog2Label.text = "Dog 2:\n" + str($Dog2.cuteness)
+	$GUI/Dog1Label.text = "\n" + str($Dog1.cuteness)
+	$GUI/Dog2Label.text = "\n" + str($Dog2.cuteness)
 	
 	# If you're in a guaranteed loss situation,
 	# Remove the Close Door Button
