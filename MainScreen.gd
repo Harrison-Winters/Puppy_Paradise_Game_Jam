@@ -43,3 +43,8 @@ func _on_Credits_pressed():
 func _on_Quit_pressed():
 	$Click.play()
 	get_tree().quit()
+
+
+func _on_Tutorial_pressed():
+	$Click.play()
+	get_tree().change_scene("res://Tutorial.tscn")

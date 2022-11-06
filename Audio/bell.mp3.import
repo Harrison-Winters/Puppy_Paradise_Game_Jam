@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bell.mp3-8cdf34e6ea4acd915a96afaddd3fa025.mp3str"
+
+[deps]
+
+source_file="res://Audio/bell.mp3"
+dest_files=[ "res://.import/bell.mp3-8cdf34e6ea4acd915a96afaddd3fa025.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

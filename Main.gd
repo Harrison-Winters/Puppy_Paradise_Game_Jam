@@ -22,7 +22,7 @@ func _ready():
 	
 
 func _on_1Button_pressed():
-	$Click.play()
+	$DoorBell.play()
 	_start_Bark_Loop()
 	store_cute = store_cute + $Dog1.cuteness
 	_addPuppy()
@@ -32,7 +32,7 @@ func _on_1Button_pressed():
 	
 	
 func _on_2Button_pressed():
-	$Click.play()
+	$DoorBell.play()
 	_start_Bark_Loop()
 	store_cute = store_cute + $Dog2.cuteness
 	_addPuppy()
@@ -42,7 +42,7 @@ func _on_2Button_pressed():
 	
 	
 func _on_BothButtons_pressed():
-	$Click.play()
+	$DoorBell.play()
 	_start_Bark_Loop()
 	store_cute = store_cute + $Dog1.cuteness + $Dog2.cuteness
 	_addPuppy()

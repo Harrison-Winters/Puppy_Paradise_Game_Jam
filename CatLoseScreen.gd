@@ -15,3 +15,7 @@ func _ready():
 
 func _on_RestartButton_pressed():
 	get_tree().change_scene("res://Main.tscn")
+
+
+func _on_BackButton_pressed():
+	get_tree().change_scene("res://MainScreen.tscn")

@@ -1,37 +1,30 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Fonts/Milky Coffee.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Audio/MainAudio.mp3" type="AudioStream" id=2]
-[ext_resource path="res://Fonts/Ubuntu-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Audio/Click.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Fonts/Milky Coffee.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Audio/MainAudio.mp3" type="AudioStream" id=3]
 [ext_resource path="res://CreditsMain.tres" type="Theme" id=4]
 [ext_resource path="res://CreditsMain.gd" type="Script" id=5]
-[ext_resource path="res://Art/BlankShop.png" type="Texture" id=6]
-[ext_resource path="res://Audio/Menu Song (mp3).mp3" type="AudioStream" id=7]
-[ext_resource path="res://Audio/bark.mp3" type="AudioStream" id=8]
-[ext_resource path="res://Audio/Click.mp3" type="AudioStream" id=9]
-
-[sub_resource type="DynamicFont" id=3]
-size = 25
-font_data = ExtResource( 3 )
+[ext_resource path="res://Audio/Menu Song (mp3).mp3" type="AudioStream" id=6]
+[ext_resource path="res://Art/BlankShop.png" type="Texture" id=7]
+[ext_resource path="res://Fonts/Ubuntu-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Audio/bark.mp3" type="AudioStream" id=9]
 
 [sub_resource type="DynamicFont" id=7]
 size = 80
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
-size = 26
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=1]
-size = 45
+[sub_resource type="DynamicFont" id=9]
+size = 30
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 40
 outline_size = 3
 outline_color = Color( 0, 0.360784, 0.470588, 1 )
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [node name="Credits" type="Control"]
 anchor_right = 1.0
@@ -41,7 +34,7 @@ script = ExtResource( 5 )
 [node name="BlankShop2" type="Sprite" parent="."]
 position = Vector2( 544, 314 )
 scale = Vector2( 0.422606, 0.37052 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_left = 0.5
@@ -52,18 +45,6 @@ margin_left = -261.0
 margin_top = -117.0
 margin_right = 262.0
 margin_bottom = 176.0
-
-[node name="OtherCredits" type="Label" parent="."]
-margin_left = 166.0
-margin_top = 357.0
-margin_right = 842.0
-margin_bottom = 458.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Music by Anthony Hotakainen
-Alt game end image 1 by upklyak
-Table image by Ilonitta"
-align = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -77,53 +58,35 @@ margin_bottom = 246.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
 margin_right = 676.0
-margin_bottom = 242.0
+margin_bottom = 86.0
 
 [node name="CreditsLabel" type="Label" parent="VBoxContainer2/VBoxContainer"]
 margin_right = 676.0
 margin_bottom = 86.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 7 )
-text = "Credits"
+text = "Tutorial"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="CreditsAudio" type="AudioStreamPlayer" parent="VBoxContainer2/VBoxContainer"]
-stream = ExtResource( 2 )
+stream = ExtResource( 3 )
 
-[node name="Names" type="Label" parent="VBoxContainer2/VBoxContainer"]
-margin_top = 90.0
-margin_right = 676.0
-margin_bottom = 219.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "Harrison Winters
-Tommy Chibault
-Josie Nuxoll
-Emma Kelly"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Label2" type="Label" parent="VBoxContainer2/VBoxContainer"]
-margin_top = 223.0
-margin_right = 676.0
-margin_bottom = 237.0
-
-[node name="CreditsLabel2" type="Label" parent="VBoxContainer2/VBoxContainer"]
-margin_top = 241.0
-margin_right = 676.0
-margin_bottom = 242.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Other"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 270.0
+margin_top = 197.0
+margin_right = 753.0
+margin_bottom = 463.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[center]Puppy Paradise is taking in new puppies! 
+Get more puppies for a higher score, but if the store's total cuteness is too much or too little your shop will explode with cuteness or will be abandoned...[/center]"
+text = "Puppy Paradise is taking in new puppies! 
+Get more puppies for a higher score, but if the store's total cuteness is too much or too little your shop will explode with cuteness or will be abandoned..."
 
 [node name="BackButton" type="Button" parent="."]
 anchor_left = 0.5
@@ -141,15 +104,15 @@ custom_fonts/font = SubResource( 8 )
 text = "BACK"
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
+stream = ExtResource( 1 )
 autoplay = true
 
 [node name="MainMenuAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
+stream = ExtResource( 6 )
 autoplay = true
 
 [node name="DogAmbience" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
+stream = ExtResource( 9 )
 volume_db = -15.0
 
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

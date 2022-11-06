@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://CatLoseScreen.gd" type="Script" id=1]
 [ext_resource path="res://Audio/Losing Sound (mp3).mp3" type="AudioStream" id=2]
+[ext_resource path="res://smallBtn.tres" type="Theme" id=3]
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Art/greycat1.png" type="Texture" id=5]
 [ext_resource path="res://Art/fire_town.jpg" type="Texture" id=6]
@@ -207,6 +208,12 @@ outline_size = 10
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
+[sub_resource type="DynamicFont" id=13]
+size = 40
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
 [node name="CatLoseScreen" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -265,7 +272,7 @@ margin_bottom = 553.0
 custom_fonts/font = ExtResource( 4 )
 text = "Restart"
 
-[node name="LoseAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="LoseAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 
 [node name="ShakeAnim" type="AnimationPlayer" parent="."]
@@ -319,3 +326,20 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="BackButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -13.0
+margin_top = 505.0
+margin_right = 287.0
+margin_bottom = 595.0
+theme = ExtResource( 3 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 13 )
+text = "BACK"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
