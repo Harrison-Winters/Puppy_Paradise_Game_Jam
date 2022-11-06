@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Fonts/Candy Beans.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Audio/Click.mp3" type="AudioStream" id=2]
@@ -270,7 +270,7 @@ region_rect = Rect2( 0, 0, 475, 301 )
 texture = ExtResource( 9 )
 region_rect = Rect2( 0, 0, 475, 301 )
 
-[sub_resource type="DynamicFont" id=25]
+[sub_resource type="DynamicFont" id=28]
 size = 35
 font_data = ExtResource( 6 )
 
@@ -372,7 +372,7 @@ margin_right = 582.0
 margin_bottom = 578.0
 theme = ExtResource( 10 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_fonts/font = SubResource( 25 )
+custom_fonts/font = SubResource( 28 )
 text = "Tutorial"
 
 [connection signal="pressed" from="Bounce/Control/Play" to="." method="_on_Play_pressed"]

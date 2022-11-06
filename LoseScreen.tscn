@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
+[ext_resource path="res://smallBtn.tres" type="Theme" id=1]
 [ext_resource path="res://LoseScreen.gd" type="Script" id=3]
 [ext_resource path="res://Audio/Losing Sound (mp3).mp3" type="AudioStream" id=4]
 [ext_resource path="res://Art/abandoned_store.jpg" type="Texture" id=5]
@@ -110,6 +111,14 @@ outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 8 )
 
+[sub_resource type="DynamicFont" id=13]
+size = 40
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
 [node name="LoseScreen" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -201,4 +210,21 @@ text = "Your dogs aren't cute!
 Shop abandoned..."
 align = 1
 
+[node name="BackButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -5.0
+margin_top = 509.0
+margin_right = 245.0
+margin_bottom = 599.0
+theme = ExtResource( 1 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 13 )
+custom_styles/focus = SubResource( 14 )
+text = "BACK"
+
 [connection signal="pressed" from="ShakeAnim/Pivot/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

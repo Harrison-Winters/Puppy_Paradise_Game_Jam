@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=2]
