@@ -166,21 +166,22 @@ scale = Vector2( 0.518425, 0.454694 )
 texture = ExtResource( 14 )
 
 [node name="CurrCute" type="Label" parent="GUI"]
-margin_left = 698.0
-margin_top = 196.0
-margin_right = 1027.0
-margin_bottom = 301.0
+margin_left = 685.0
+margin_top = 152.0
+margin_right = 1014.0
+margin_bottom = 296.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "Cuteness
+text = "Total
+Cuteness
 300"
 align = 1
 
 [node name="Dog1Label" type="Label" parent="GUI"]
 margin_left = 211.0
-margin_top = 495.0
+margin_top = 496.0
 margin_right = 550.0
-margin_bottom = 600.0
+margin_bottom = 601.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Dog 1:
@@ -336,8 +337,8 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 9 )
 
 [node name="DoorClosed" type="Sprite" parent="GUI/GuySprite"]
-position = Vector2( 1255, 850 )
-scale = Vector2( 1.39721, 1.15961 )
+position = Vector2( 2195, 854.999 )
+scale = Vector2( -1.397, 1.16 )
 texture = ExtResource( 22 )
 
 [node name="CatSprite" type="Sprite" parent="GUI"]
@@ -356,9 +357,9 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 10 )
 
 [node name="DoorButton" type="Button" parent="GUI"]
-margin_left = 740.0
+margin_left = 739.0
 margin_top = 376.0
-margin_right = 972.0
+margin_right = 971.0
 margin_bottom = 468.0
 theme = SubResource( 7 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )

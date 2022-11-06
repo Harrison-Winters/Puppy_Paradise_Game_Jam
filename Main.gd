@@ -52,7 +52,7 @@ func _on_BothButtons_pressed():
 	$ResetTimer.start()
 	
 func _process(delta):
-	$GUI/CurrCute.text = "Cuteness \n" + str(store_cute)
+	$GUI/CurrCute.text = "Total \nCuteness \n" + str(store_cute)
 	if store_cute > max_cute:
 		get_tree().change_scene("res://LoseScreenTooCute.tscn")
 	elif store_cute < min_cute:
