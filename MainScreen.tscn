@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Fonts/Candy Beans.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Audio/Click.mp3" type="AudioStream" id=2]
@@ -101,6 +101,8 @@ modulate_color = Color( 0.733333, 0.733333, 0.733333, 1 )
 [sub_resource type="StyleBoxTexture" id=14]
 texture = ExtResource( 7 )
 region_rect = Rect2( 0, 0, 500, 398 )
+
+[sub_resource type="StyleBoxEmpty" id=25]
 
 [sub_resource type="StyleBoxTexture" id=15]
 texture = ExtResource( 7 )
@@ -239,6 +241,8 @@ texture = ExtResource( 9 )
 region_rect = Rect2( 0, 0, 475, 301 )
 modulate_color = Color( 0.6, 0.6, 0.6, 1 )
 
+[sub_resource type="StyleBoxEmpty" id=26]
+
 [sub_resource type="StyleBoxTexture" id=5]
 texture = ExtResource( 9 )
 region_rect = Rect2( 0, 0, 475, 301 )
@@ -259,6 +263,8 @@ modulate_color = Color( 0.733333, 0.733333, 0.733333, 1 )
 [sub_resource type="StyleBoxTexture" id=11]
 texture = ExtResource( 9 )
 region_rect = Rect2( 0, 0, 475, 301 )
+
+[sub_resource type="StyleBoxEmpty" id=27]
 
 [sub_resource type="StyleBoxTexture" id=12]
 texture = ExtResource( 9 )
@@ -294,6 +300,7 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 22 )
 custom_styles/hover = SubResource( 13 )
 custom_styles/pressed = SubResource( 14 )
+custom_styles/focus = SubResource( 25 )
 custom_styles/normal = SubResource( 15 )
 text = "PLAY"
 expand_icon = true
@@ -324,6 +331,7 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 8 )
 custom_styles/hover = SubResource( 6 )
 custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 26 )
 custom_styles/normal = SubResource( 5 )
 text = "Credits"
 
@@ -337,6 +345,7 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 9 )
 custom_styles/hover = SubResource( 10 )
 custom_styles/pressed = SubResource( 11 )
+custom_styles/focus = SubResource( 27 )
 custom_styles/normal = SubResource( 12 )
 text = "Quit"
 
