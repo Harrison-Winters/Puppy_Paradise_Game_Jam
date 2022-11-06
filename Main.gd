@@ -14,11 +14,30 @@ var puppy_texture3 = preload("res://art/puppy3.png")
 
 func _ready():
 	$MainAudio.play()
+	_dog_Bark_Loop()
 	rng.randomize()
 	Global.puppy_total = 0
 	$Dog1.cuteness = rng.randi_range(-4, 4)
 	$Dog2.cuteness = rng.randi_range(-4, 4)
 	$ResetTimer.start()
+	
+	
+func _dog_Bark_Loop():
+	var t = Timer.new()
+	t.set_wait_time(10)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	$Bark.play()
+	var b = Timer.new()
+	b.set_wait_time(1)
+	b.set_one_shot(true)
+	self.add_child(t)
+	b.start()
+	yield(b, "timeout")
+	$Bark.play()
+	_dog_Bark_Loop()
 	
 
 func _on_1Button_pressed():

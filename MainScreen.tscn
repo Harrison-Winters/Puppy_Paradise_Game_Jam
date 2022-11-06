@@ -355,6 +355,7 @@ text = "Quit Game"
 
 [node name="MainMenuAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+volume_db = -10.0
 autoplay = true
 
 [node name="DogAmbience" type="AudioStreamPlayer" parent="."]
