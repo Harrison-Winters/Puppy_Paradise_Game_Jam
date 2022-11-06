@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Fonts/Candy Beans.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Audio/Click.mp3" type="AudioStream" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Art/bigbutton.png" type="Texture" id=7]
 [ext_resource path="res://Audio/bark.mp3" type="AudioStream" id=8]
 [ext_resource path="res://Art/mediumbutton.png" type="Texture" id=9]
+[ext_resource path="res://mediumBtn.tres" type="Theme" id=10]
 
 [sub_resource type="Animation" id=20]
 resource_name = "BounceAnim"
@@ -54,11 +55,22 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 
+[sub_resource type="StyleBoxTexture" id=23]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 500, 398 )
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+modulate_color = Color( 0.733333, 0.733333, 0.733333, 1 )
+
 [sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 7 )
 region_rect = Rect2( 32, 38, 445, 307 )
 expand_margin_top = 14.0
 expand_margin_bottom = 22.0
+
+[sub_resource type="StyleBoxTexture" id=24]
 
 [sub_resource type="DynamicFont" id=3]
 size = 62
@@ -67,7 +79,9 @@ font_data = ExtResource( 6 )
 
 [sub_resource type="Theme" id=4]
 default_font = SubResource( 3 )
+Button/styles/hover = SubResource( 23 )
 Button/styles/normal = SubResource( 2 )
+Button/styles/pressed = SubResource( 24 )
 
 [sub_resource type="DynamicFont" id=22]
 size = 72
@@ -78,6 +92,10 @@ font_data = ExtResource( 6 )
 [sub_resource type="StyleBoxTexture" id=13]
 texture = ExtResource( 7 )
 region_rect = Rect2( 0, 0, 500, 398 )
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
 modulate_color = Color( 0.733333, 0.733333, 0.733333, 1 )
 
 [sub_resource type="StyleBoxTexture" id=14]
@@ -210,6 +228,10 @@ font_data = ExtResource( 6 )
 [sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 9 )
 region_rect = Rect2( 0, 0, 475, 301 )
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
 modulate_color = Color( 0.733333, 0.733333, 0.733333, 1 )
 
 [sub_resource type="StyleBoxTexture" id=7]
@@ -228,6 +250,10 @@ font_data = ExtResource( 6 )
 [sub_resource type="StyleBoxTexture" id=10]
 texture = ExtResource( 9 )
 region_rect = Rect2( 0, 0, 475, 301 )
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
 modulate_color = Color( 0.733333, 0.733333, 0.733333, 1 )
 
 [sub_resource type="StyleBoxTexture" id=11]
@@ -264,9 +290,7 @@ margin_bottom = 69.0
 grow_horizontal = 0
 size_flags_vertical = 3
 theme = SubResource( 4 )
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 22 )
 custom_styles/hover = SubResource( 13 )
 custom_styles/pressed = SubResource( 14 )
@@ -295,6 +319,8 @@ margin_left = 280.0
 margin_top = 351.0
 margin_right = 580.0
 margin_bottom = 431.0
+theme = ExtResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 8 )
 custom_styles/hover = SubResource( 6 )
 custom_styles/pressed = SubResource( 7 )
@@ -306,29 +332,25 @@ margin_left = 282.0
 margin_top = 405.0
 margin_right = 582.0
 margin_bottom = 485.0
+theme = ExtResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 9 )
 custom_styles/hover = SubResource( 10 )
 custom_styles/pressed = SubResource( 11 )
 custom_styles/normal = SubResource( 12 )
 text = "Quit"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
-margin_left = 233.0
-margin_top = 450.0
-margin_right = 626.0
-margin_bottom = 814.0
-
 [node name="MainMenuAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
 
-[node name="Click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
-volume_db = -14.157
-
 [node name="DogAmbience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -15.0
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -14.157
 
 [connection signal="pressed" from="Bounce/Control/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]

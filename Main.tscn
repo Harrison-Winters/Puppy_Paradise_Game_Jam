@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=2]
@@ -15,6 +15,9 @@
 [ext_resource path="res://Audio/MainAudio.mp3" type="AudioStream" id=13]
 [ext_resource path="res://Art/BlankShop.png" type="Texture" id=14]
 [ext_resource path="res://Art/bigbutton.png" type="Texture" id=15]
+[ext_resource path="res://Fonts/Milky Coffee.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://Audio/Click.mp3" type="AudioStream" id=17]
+[ext_resource path="res://mediumBtn.tres" type="Theme" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -31,6 +34,10 @@ font_data = ExtResource( 1 )
 [sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 15 )
 region_rect = Rect2( 0, 0, 500, 398 )
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
 modulate_color = Color( 0.733333, 0.733333, 0.733333, 1 )
 
 [sub_resource type="StyleBoxTexture" id=5]
@@ -45,6 +52,30 @@ region_rect = Rect2( 0, 0, 500, 398 )
 Button/styles/hover = SubResource( 4 )
 Button/styles/normal = SubResource( 5 )
 Button/styles/pressed = SubResource( 6 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 40
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 40
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 40
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 40
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 16 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
@@ -96,36 +127,43 @@ text = "Dog 2:
 align = 1
 
 [node name="DoorButton" type="Button" parent="GUI"]
-margin_left = 28.0
-margin_top = 472.0
-margin_right = 271.0
-margin_bottom = 529.0
+margin_left = -10.0
+margin_top = 480.0
+margin_right = 340.0
+margin_bottom = 580.0
 theme = SubResource( 7 )
-custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 8 )
 text = "Close Door"
 
 [node name="1Button" type="Button" parent="GUI"]
-margin_left = 27.0
-margin_top = 104.0
-margin_right = 272.0
-margin_bottom = 161.0
-custom_fonts/font = ExtResource( 2 )
+margin_left = -22.0
+margin_top = 72.0
+margin_right = 328.0
+margin_bottom = 202.0
+theme = ExtResource( 18 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 9 )
 text = "Take Dog 1"
 
 [node name="2Button" type="Button" parent="GUI"]
-margin_left = 21.0
-margin_top = 230.0
-margin_right = 266.0
-margin_bottom = 287.0
-custom_fonts/font = ExtResource( 2 )
+margin_left = -22.0
+margin_top = 176.0
+margin_right = 328.0
+margin_bottom = 306.0
+theme = ExtResource( 18 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 10 )
 text = "Take Dog 2"
 
 [node name="BothButtons" type="Button" parent="GUI"]
-margin_left = 23.0
-margin_top = 365.0
-margin_right = 269.0
-margin_bottom = 422.0
-custom_fonts/font = ExtResource( 2 )
+margin_left = -21.0
+margin_top = 272.0
+margin_right = 329.0
+margin_bottom = 402.0
+theme = ExtResource( 18 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 11 )
 text = "Take Both"
 
 [node name="WinLoseLabel" type="Label" parent="GUI"]
@@ -153,6 +191,9 @@ script = ExtResource( 7 )
 wait_time = 60.0
 one_shot = true
 autostart = true
+
+[node name="MainAudio" type="AudioStreamPlayer" parent="GUI/CatTimerLabel/CatTimer"]
+stream = ExtResource( 13 )
 
 [node name="MeowAudio" type="AudioStreamPlayer2D" parent="GUI/CatTimerLabel/CatTimer"]
 stream = ExtResource( 12 )
@@ -189,9 +230,10 @@ script = ExtResource( 4 )
 position = Vector2( 255, 170 )
 script = ExtResource( 6 )
 
-[node name="MainAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 13 )
-autoplay = true
+[node name="Bark" type="AudioStreamPlayer" parent="."]
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
 
 [connection signal="pressed" from="GUI/DoorButton" to="." method="_on_DoorButton_pressed"]
 [connection signal="pressed" from="GUI/1Button" to="." method="_on_1Button_pressed"]

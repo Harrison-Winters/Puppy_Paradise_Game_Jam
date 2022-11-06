@@ -143,7 +143,7 @@ tracks/0/keys = {
 [sub_resource type="DynamicFont" id=4]
 size = 60
 outline_size = 4
-outline_color = Color( 0, 0.498039, 0.611765, 1 )
+outline_color = Color( 0, 0.501961, 0.584314, 1 )
 font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxTexture" id=5]
