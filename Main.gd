@@ -159,12 +159,10 @@ func _on_ResetTimer_timeout():
 	_randomize_cuteness()
 
 func _start_Bark_Loop():
-	var barkSound = AudioStreamPlayer.new()
-	barkSound.stream("res://Click.mp3")
 	var t = Timer.new()
 	t.set_wait_time(10)
 	t.set_one_shot(true)
 	self.add_child(t)
 	t.start()
 	yield(t, "timeout")
-	barkSound.play()
+

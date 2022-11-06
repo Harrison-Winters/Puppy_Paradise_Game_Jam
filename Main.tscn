@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://mediumBtn.tres" type="Theme" id=18]
 [ext_resource path="res://Fonts/Ubuntu-Bold.ttf" type="DynamicFontData" id=19]
 [ext_resource path="res://Art/table.png" type="Texture" id=20]
+[ext_resource path="res://Art/white_oval.png" type="Texture" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -155,12 +156,6 @@ position = Vector2( 560, 327 )
 scale = Vector2( 0.518425, 0.454694 )
 texture = ExtResource( 14 )
 
-[node name="ColorRect" type="ColorRect" parent="GUI"]
-margin_left = 695.0
-margin_top = -11.0
-margin_right = 970.0
-margin_bottom = 117.0
-
 [node name="CurrCute" type="Label" parent="GUI"]
 margin_left = 710.0
 margin_top = 196.0
@@ -234,11 +229,16 @@ custom_fonts/font = ExtResource( 2 )
 text = "Too Cute:  10
 Too Ugly:  -10"
 
+[node name="WhiteOval" type="Sprite" parent="GUI"]
+position = Vector2( 840, 64.5 )
+scale = Vector2( 0.808511, 0.635965 )
+texture = ExtResource( 21 )
+
 [node name="CatTimerLabel" type="Label" parent="GUI"]
-margin_left = 704.0
-margin_top = 6.0
-margin_right = 970.0
-margin_bottom = 86.0
+margin_left = 709.0
+margin_top = 10.0
+margin_right = 975.0
+margin_bottom = 90.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "Cat Timer:"
@@ -324,7 +324,7 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 9 )
 
 [node name="CatSprite" type="Sprite" parent="GUI"]
-position = Vector2( 979, 69 )
+position = Vector2( 968, 68 )
 scale = Vector2( 0.068, 0.068 )
 texture = ExtResource( 8 )
 
