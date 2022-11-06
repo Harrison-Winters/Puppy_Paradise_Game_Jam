@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://Art/puppy2.png" type="Texture" id=11]
 [ext_resource path="res://Audio/Meow.mp3" type="AudioStream" id=12]
 [ext_resource path="res://Audio/MainAudio.mp3" type="AudioStream" id=13]
+[ext_resource path="res://Art/BlankShop.png" type="Texture" id=14]
+[ext_resource path="res://Art/bigbutton.png" type="Texture" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -26,6 +28,24 @@ font_data = ExtResource( 1 )
 size = 45
 font_data = ExtResource( 1 )
 
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 500, 398 )
+modulate_color = Color( 0.733333, 0.733333, 0.733333, 1 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 500, 398 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 500, 398 )
+
+[sub_resource type="Theme" id=7]
+Button/styles/hover = SubResource( 4 )
+Button/styles/normal = SubResource( 5 )
+Button/styles/pressed = SubResource( 6 )
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -36,6 +56,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 1042.0
 margin_bottom = 614.0
+
+[node name="BlankShop" type="Sprite" parent="GUI/Background"]
+position = Vector2( 422, 314 )
+scale = Vector2( 0.423, 0.371 )
+texture = ExtResource( 14 )
 
 [node name="CurrCute" type="Label" parent="GUI"]
 margin_left = 700.0
@@ -75,6 +100,7 @@ margin_left = 28.0
 margin_top = 472.0
 margin_right = 271.0
 margin_bottom = 529.0
+theme = SubResource( 7 )
 custom_fonts/font = ExtResource( 2 )
 text = "Close Door"
 
@@ -130,6 +156,7 @@ autostart = true
 
 [node name="MeowAudio" type="AudioStreamPlayer2D" parent="GUI/CatTimerLabel/CatTimer"]
 stream = ExtResource( 12 )
+volume_db = -10.0
 
 [node name="CatSprite" type="Sprite" parent="GUI"]
 position = Vector2( 968, 64 )

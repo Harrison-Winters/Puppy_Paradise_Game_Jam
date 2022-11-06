@@ -8,7 +8,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	$Grow.play("Grow")
+	$ShakeAnim.play("Shake")
 	$ScoreLabel.text = "You got " + str(Global.puppy_total) + " Puppies"
 	var t = Timer.new()
 	t.set_wait_time(3)

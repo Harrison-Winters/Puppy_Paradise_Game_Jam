@@ -1,16 +1,97 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://WinScreen.gd" type="Script" id=2]
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Audio/Winning Sound (mp3).mp3" type="AudioStream" id=4]
 [ext_resource path="res://Art/puppy3.png" type="Texture" id=5]
 [ext_resource path="res://Art/puppy1.png" type="Texture" id=6]
 [ext_resource path="res://Art/puppy2.png" type="Texture" id=7]
+[ext_resource path="res://Fonts/Milky Coffee.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Art/bigbutton.png" type="Texture" id=9]
 
-[sub_resource type="DynamicFont" id=1]
-size = 45
-font_data = ExtResource( 1 )
+[sub_resource type="Animation" id=10]
+resource_name = "Grow"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Grow/Text:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Grow/Text:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=6]
+size = 80
+outline_size = 10
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 8 )
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ShakeAnim/Pivot:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Shake"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ShakeAnim/Pivot:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 3.0, 0.0, -4.0, 0.0 ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+outline_size = 4
+outline_color = Color( 0, 0.498039, 0.611765, 1 )
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 500, 398 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 500, 398 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 500, 398 )
 
 [node name="WinScreen" type="Node2D"]
 script = ExtResource( 2 )
@@ -27,44 +108,86 @@ stream = ExtResource( 4 )
 autoplay = true
 
 [node name="Puppy1" type="Sprite" parent="."]
-position = Vector2( 216, 440 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 210, 328 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 6 )
 
 [node name="Puppy3" type="Sprite" parent="."]
-position = Vector2( 840, 456 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 823, 344 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 5 )
 
 [node name="Puppy2" type="Sprite" parent="."]
-position = Vector2( 504, 456 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 498, 344 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 7 )
 
-[node name="WinLabel" type="Label" parent="."]
-margin_left = 280.0
-margin_top = 80.0
-margin_right = 679.0
-margin_bottom = 185.0
-custom_fonts/font = SubResource( 1 )
-text = "You win!"
-align = 1
-
 [node name="ScoreLabel" type="Label" parent="."]
-margin_left = 304.0
-margin_top = 200.0
-margin_right = 680.0
-margin_bottom = 251.0
+margin_left = 300.0
+margin_top = 411.0
+margin_right = 676.0
+margin_bottom = 462.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "You got 0 Puppies"
 align = 1
 
-[node name="RestartButton" type="Button" parent="."]
-margin_left = 368.0
-margin_top = 352.0
-margin_right = 613.0
-margin_bottom = 409.0
-custom_fonts/font = ExtResource( 3 )
-text = "Restart"
+[node name="Grow" type="AnimationPlayer" parent="."]
+anims/Grow = SubResource( 10 )
+anims/RESET = SubResource( 11 )
 
-[connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
+[node name="Text" type="Control" parent="Grow"]
+margin_left = 483.0
+margin_top = 374.0
+margin_right = 523.0
+margin_bottom = 414.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="WinLabel" type="Label" parent="Grow/Text"]
+margin_left = -199.0
+margin_top = -39.0
+margin_right = 200.0
+margin_bottom = 66.0
+custom_colors/font_color = Color( 0.764706, 1, 0.533333, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "You win!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ShakeAnim" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 7 )
+anims/Shake = SubResource( 8 )
+
+[node name="Pivot" type="Control" parent="ShakeAnim"]
+margin_left = 481.0
+margin_top = 526.0
+margin_right = 482.0
+margin_bottom = 527.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RestartButton" type="Button" parent="ShakeAnim/Pivot"]
+anchor_left = -0.251999
+anchor_top = 0.4743
+anchor_right = -0.251999
+anchor_bottom = 0.474297
+margin_left = -221.748
+margin_top = -57.4743
+margin_right = 228.252
+margin_bottom = 72.5257
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 5 )
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="pressed" from="ShakeAnim/Pivot/RestartButton" to="." method="_on_RestartButton_pressed"]

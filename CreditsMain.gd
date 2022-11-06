@@ -4,5 +4,6 @@ extends Control
 func _ready():
 	pass # Replace with function body.
 
-func _on_BackToMenu_pressed():
+func _on_BackButton_pressed():
+	$Click.play()
 	get_tree().change_scene("res://MainScreen.tscn")

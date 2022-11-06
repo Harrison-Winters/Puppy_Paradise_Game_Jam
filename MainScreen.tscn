@@ -1,76 +1,335 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=31 format=2]
 
-[ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/Candy Beans.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Audio/Click.mp3" type="AudioStream" id=2]
 [ext_resource path="res://MainScreen.gd" type="Script" id=3]
-
-
-[ext_resource path="res://Art/menuimage.png" type="Texture" id=5]
 [ext_resource path="res://Audio/Menu Song (mp3).mp3" type="AudioStream" id=4]
+[ext_resource path="res://Art/menuimagestretch.png" type="Texture" id=5]
+[ext_resource path="res://Fonts/Milky Coffee.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Art/bigbutton.png" type="Texture" id=7]
+[ext_resource path="res://Audio/bark.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Art/mediumbutton.png" type="Texture" id=9]
 
+[sub_resource type="Animation" id=20]
+resource_name = "BounceAnim"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bounce/Control:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -2.0, 0.0, 2.0, 0.0 ]
+}
 
-[sub_resource type="DynamicFont" id=1]
-size = 45
+[sub_resource type="Animation" id=21]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bounce/Control/Play:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bounce/Control:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 7 )
+region_rect = Rect2( 32, 38, 445, 307 )
+expand_margin_top = 14.0
+expand_margin_bottom = 22.0
+
+[sub_resource type="DynamicFont" id=3]
+size = 62
+extra_spacing_top = 5
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+Button/styles/normal = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=22]
+size = 72
+outline_size = 5
+outline_color = Color( 0, 0.341176, 0.45098, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 500, 398 )
+modulate_color = Color( 0.733333, 0.733333, 0.733333, 1 )
+
+[sub_resource type="StyleBoxTexture" id=14]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 500, 398 )
+
+[sub_resource type="StyleBoxTexture" id=15]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 500, 398 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 100
+outline_size = 7
+outline_color = Color( 0, 0.360784, 0.486275, 1 )
 font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=17]
+resource_name = "New Anim"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("GameTitleLabel:margin_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 93.0, 85, 93.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GameTitleLabel:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "New Anim (2)"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("GameTitleLabel:margin_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 93.0, 85.0, 93.0, 85.0, 90.0, 85.0, 93.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GameTitleLabel:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.611765, 0.917647, 1, 1 ), Color( 1, 0.611765, 0.913725, 1 ), Color( 0.611765, 0.917647, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("GameTitleLabel:margin_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 93.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bounce/Control/Play:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Bounce/Control/Play:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GameTitleLabel:custom_colors/font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.611765, 0.917647, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=8]
+size = 40
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 475, 301 )
+modulate_color = Color( 0.733333, 0.733333, 0.733333, 1 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 475, 301 )
+modulate_color = Color( 0.6, 0.6, 0.6, 1 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 475, 301 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 40
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 475, 301 )
+modulate_color = Color( 0.733333, 0.733333, 0.733333, 1 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 475, 301 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 475, 301 )
 
 [node name="MainScreen" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 1031.0
-margin_bottom = 606.0
-
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1032.0
-margin_bottom = 607.0
-
 [node name="Menuimage" type="Sprite" parent="."]
-position = Vector2( 557, 238 )
-scale = Vector2( 0.6, 0.5 )
+position = Vector2( 544, 314 )
+scale = Vector2( 0.423, 0.371 )
 texture = ExtResource( 5 )
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
-margin_left = 262.0
-margin_top = 216.0
-margin_right = 655.0
-margin_bottom = 580.0
+[node name="Bounce" type="AnimationPlayer" parent="."]
+anims/BounceAnim = SubResource( 20 )
+anims/RESET = SubResource( 21 )
 
-[node name="Play" type="Button" parent="VBoxContainer2"]
-margin_right = 393.0
-margin_bottom = 57.0
-custom_fonts/font = ExtResource( 2 )
-text = "Play"
+[node name="Control" type="Control" parent="Bounce"]
+margin_left = 429.0
+margin_top = 306.0
+margin_right = 430.0
+margin_bottom = 307.0
 
-[node name="Credits" type="Button" parent="VBoxContainer2"]
-margin_top = 61.0
-margin_right = 393.0
-margin_bottom = 118.0
-custom_fonts/font = ExtResource( 2 )
-text = "Credits"
-
-[node name="Quit" type="Button" parent="VBoxContainer2"]
-margin_top = 122.0
-margin_right = 393.0
-margin_bottom = 179.0
-custom_fonts/font = ExtResource( 2 )
-text = "Quit"
+[node name="Play" type="Button" parent="Bounce/Control"]
+margin_left = -176.0
+margin_top = -61.0
+margin_right = 174.0
+margin_bottom = 69.0
+grow_horizontal = 0
+size_flags_vertical = 3
+theme = SubResource( 4 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 22 )
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/normal = SubResource( 15 )
+text = "PLAY"
+expand_icon = true
 
 [node name="GameTitleLabel" type="Label" parent="."]
-margin_left = 282.0
-margin_top = 32.0
-margin_right = 611.0
-margin_bottom = 137.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Puppy Paradise"
+margin_left = 172.0
+margin_top = 93.0
+margin_right = 860.0
+margin_bottom = 222.0
+custom_colors/font_color = Color( 0.611765, 0.917647, 1, 1 )
+custom_fonts/font = SubResource( 16 )
+text = "PUPPY PARADISE"
 align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+"anims/New Anim" = SubResource( 17 )
+"anims/New Anim (2)" = SubResource( 19 )
+anims/RESET = SubResource( 18 )
+
+[node name="Credits" type="Button" parent="."]
+margin_left = 280.0
+margin_top = 351.0
+margin_right = 580.0
+margin_bottom = 431.0
+custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 5 )
+text = "Credits"
+
+[node name="Quit" type="Button" parent="."]
+margin_left = 282.0
+margin_top = 405.0
+margin_right = 582.0
+margin_bottom = 485.0
+custom_fonts/font = SubResource( 9 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+text = "Quit"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+margin_left = 233.0
+margin_top = 450.0
+margin_right = 626.0
+margin_bottom = 814.0
 
 [node name="MainMenuAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
 
-[connection signal="pressed" from="VBoxContainer2/Play" to="." method="_on_Play_pressed"]
-[connection signal="pressed" from="VBoxContainer2/Credits" to="." method="_on_Credits_pressed"]
-[connection signal="pressed" from="VBoxContainer2/Quit" to="." method="_on_Quit_pressed"]
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -14.157
+
+[node name="DogAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -15.0
+
+[connection signal="pressed" from="Bounce/Control/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]

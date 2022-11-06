@@ -1,51 +1,100 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Fonts/Milky Coffee.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Audio/MainAudio.mp3" type="AudioStream" id=2]
 [ext_resource path="res://Fonts/Ubuntu-Regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=4]
 [ext_resource path="res://CreditsMain.gd" type="Script" id=5]
-
-[sub_resource type="DynamicFont" id=1]
-size = 45
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 30
-font_data = ExtResource( 3 )
+[ext_resource path="res://Art/BlankShop.png" type="Texture" id=6]
+[ext_resource path="res://Art/bigbutton.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=3]
 size = 20
 font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 80
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 45
+
+[sub_resource type="DynamicFont" id=8]
+size = 40
+outline_size = 3
+outline_color = Color( 0, 0.360784, 0.470588, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 500, 398 )
+modulate_color = Color( 0.733333, 0.733333, 0.733333, 1 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 500, 398 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 500, 398 )
 
 [node name="Credits" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 5 )
 
+[node name="BlankShop2" type="Sprite" parent="."]
+position = Vector2( 544, 314 )
+scale = Vector2( 0.422606, 0.37052 )
+texture = ExtResource( 6 )
+
 [node name="ColorRect" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -261.0
+margin_top = -117.0
+margin_right = 262.0
+margin_bottom = 176.0
+
+[node name="OtherCredits" type="Label" parent="."]
+margin_left = 166.0
+margin_top = 357.0
+margin_right = 842.0
+margin_bottom = 458.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Music by Anthony Hotakainen
+Alt game end image 1 by upklyak
+FreeSound Sound Effects from:
+Ith_stp / crazeymonke2 / cabled_mess / tuberatanka"
+align = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -338.0
-margin_top = -237.0
-margin_right = 338.0
-margin_bottom = 189.0
+margin_left = -343.0
+margin_top = -180.0
+margin_right = 333.0
+margin_bottom = 246.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
 margin_right = 676.0
-margin_bottom = 378.0
+margin_bottom = 243.0
 
 [node name="CreditsLabel" type="Label" parent="VBoxContainer2/VBoxContainer"]
 margin_right = 676.0
-margin_bottom = 51.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
+margin_bottom = 86.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 7 )
 text = "Credits"
 align = 1
 __meta__ = {
@@ -57,9 +106,9 @@ position = Vector2( -492, -280 )
 stream = ExtResource( 2 )
 
 [node name="Names" type="Label" parent="VBoxContainer2/VBoxContainer"]
-margin_top = 55.0
+margin_top = 90.0
 margin_right = 676.0
-margin_bottom = 200.0
+margin_bottom = 219.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Harrison Winters
@@ -72,14 +121,14 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="VBoxContainer2/VBoxContainer"]
-margin_top = 204.0
+margin_top = 223.0
 margin_right = 676.0
-margin_bottom = 218.0
+margin_bottom = 237.0
 
 [node name="CreditsLabel2" type="Label" parent="VBoxContainer2/VBoxContainer"]
-margin_top = 222.0
+margin_top = 241.0
 margin_right = 676.0
-margin_bottom = 273.0
+margin_bottom = 243.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Other"
@@ -88,36 +137,24 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer"]
-margin_top = 277.0
-margin_right = 676.0
-margin_bottom = 378.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Music by Anthony Hotakainen
-Alt game end image 1 by upklyak
-Alt game end image 2 by
-Alt game end image 3 by"
-align = 1
-
-[node name="RestartButton" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -158.0
-margin_top = -111.0
-margin_right = 159.0
-margin_bottom = -54.0
-custom_fonts/font = ExtResource( 4 )
-text = "Restart"
+margin_top = -123.0
+margin_right = 142.0
+margin_bottom = -33.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "BACK"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -512.0
-margin_top = -28.5
-margin_right = 512.0
-margin_bottom = 28.5
+[node name="Click" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
