@@ -21,7 +21,7 @@
 [ext_resource path="res://Fonts/Ubuntu-Bold.ttf" type="DynamicFontData" id=19]
 
 [sub_resource type="DynamicFont" id=1]
-size = 45
+size = 40
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -80,7 +80,7 @@ font_data = ExtResource( 16 )
 
 [sub_resource type="Animation" id=12]
 resource_name = "Popups"
-length = 6.0
+length = 8.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Popup/Control2:rect_position")
 tracks/0/interp = 1
@@ -88,7 +88,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 2.8, 3 ),
+"times": PoolRealArray( 0, 0.2, 3.3, 3.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 139, -104 ), Vector2( 139, 75 ), Vector2( 139, 75 ), Vector2( 139, -104 ) ]
@@ -100,7 +100,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 3.9, 4.1, 5.8, 6 ),
+"times": PoolRealArray( 0, 3.9, 4.1, 7.7, 7.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 141, -83 ), Vector2( 141, -83 ), Vector2( 141, 10 ), Vector2( 141, 10 ), Vector2( 141, -83 ) ]
@@ -154,11 +154,17 @@ position = Vector2( 560, 327 )
 scale = Vector2( 0.518425, 0.454694 )
 texture = ExtResource( 14 )
 
+[node name="ColorRect" type="ColorRect" parent="GUI"]
+margin_left = 695.0
+margin_top = -11.0
+margin_right = 970.0
+margin_bottom = 117.0
+
 [node name="CurrCute" type="Label" parent="GUI"]
-margin_left = 700.0
-margin_top = 203.0
-margin_right = 1029.0
-margin_bottom = 308.0
+margin_left = 710.0
+margin_top = 196.0
+margin_right = 1039.0
+margin_bottom = 301.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Cuteness Level:
@@ -238,10 +244,10 @@ text = "Too Cute:  10
 Too Ugly:  -10"
 
 [node name="CatTimerLabel" type="Label" parent="GUI"]
-margin_left = 688.0
-margin_top = 24.0
-margin_right = 954.0
-margin_bottom = 104.0
+margin_left = 704.0
+margin_top = 6.0
+margin_right = 970.0
+margin_bottom = 86.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "Cat Timer:"
@@ -322,8 +328,8 @@ from running, but stops higher scores!"
 align = 1
 
 [node name="CatSprite" type="Sprite" parent="GUI"]
-position = Vector2( 968, 64 )
-scale = Vector2( 0.0682737, 0.0795086 )
+position = Vector2( 979, 69 )
+scale = Vector2( 0.068, 0.068 )
 texture = ExtResource( 8 )
 
 [node name="GuySprite" type="Sprite" parent="GUI"]
