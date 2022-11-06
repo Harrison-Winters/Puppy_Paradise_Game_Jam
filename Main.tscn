@@ -366,6 +366,9 @@ stream = ExtResource( 17 )
 [node name="MainAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 
+[node name="ResetTimer" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="pressed" from="GUI/DoorButton" to="." method="_on_DoorButton_pressed"]
 [connection signal="pressed" from="GUI/1Button" to="." method="_on_1Button_pressed"]
 [connection signal="pressed" from="GUI/2Button" to="." method="_on_2Button_pressed"]

@@ -16,6 +16,9 @@ func _ready():
 	$MainAudio.play()
 	rng.randomize()
 	Global.puppy_total = 0
+	$Dog1.cuteness = rng.randi_range(-4, 4)
+	$Dog2.cuteness = rng.randi_range(-4, 4)
+	
 
 func _on_1Button_pressed():
 	$Click.play()
@@ -50,6 +53,13 @@ func _process(delta):
 
 	$GUI/Dog1Label.text = "Dog 1:\n" + str($Dog1.cuteness)
 	$GUI/Dog2Label.text = "Dog 2:\n" + str($Dog2.cuteness)
+	
+	# If you're in a guaranteed loss situation,
+	# Remove the Close Door Button
+#	if (store_cute + $Dog1.cuteness > max_cute or store_cute + $Dog1.cuteness < min_cute) \
+#		and (store_cute + $Dog2.cuteness > max_cute or store_cute + $Dog2.cuteness < min_cute) \
+#		and (store_cute + $Dog1.cuteness + $Dog2.cuteness > max_cute or store_cute + $Dog1.cuteness + $Dog2.cuteness < min_cute):
+#			$DoorButton.visible = false;
 
 func _randomize_cuteness():
 	var rand_cute1 = rng.randi_range(8, -8)
