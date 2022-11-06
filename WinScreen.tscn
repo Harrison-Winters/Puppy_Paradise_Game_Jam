@@ -120,7 +120,7 @@ margin_right = 1030.0
 margin_bottom = 607.0
 color = Color( 0.917647, 1, 0.768627, 1 )
 
-[node name="WinAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="WinAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
 
