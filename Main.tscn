@@ -375,3 +375,4 @@ wait_time = 5.0
 [connection signal="pressed" from="GUI/BothButtons" to="." method="_on_BothButtons_pressed"]
 [connection signal="cat_approaching" from="GUI/CatTimerLabel" to="." method="_on_CatTimerLabel_cat_approaching"]
 [connection signal="timeout" from="GUI/CatTimerLabel/CatTimer" to="." method="_on_CatTimer_timeout"]
+[connection signal="timeout" from="ResetTimer" to="." method="_on_ResetTimer_timeout"]

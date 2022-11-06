@@ -18,6 +18,7 @@ func _ready():
 	Global.puppy_total = 0
 	$Dog1.cuteness = rng.randi_range(-4, 4)
 	$Dog2.cuteness = rng.randi_range(-4, 4)
+	$ResetTimer.start()
 	
 
 func _on_1Button_pressed():
@@ -26,6 +27,7 @@ func _on_1Button_pressed():
 	_addPuppy()
 	_randomize_cuteness()
 	_change_puppy_sprites()
+	$ResetTimer.start()
 	
 	
 func _on_2Button_pressed():
@@ -34,6 +36,7 @@ func _on_2Button_pressed():
 	_addPuppy()
 	_randomize_cuteness()
 	_change_puppy_sprites()
+	$ResetTimer.start()
 	
 	
 func _on_BothButtons_pressed():
@@ -43,6 +46,7 @@ func _on_BothButtons_pressed():
 	_addPuppy()
 	_randomize_cuteness()
 	_change_puppy_sprites()
+	$ResetTimer.start()
 	
 func _process(delta):
 	$GUI/CurrCute.text = "Cuteness \n" + str(store_cute)
@@ -145,3 +149,8 @@ func _on_DoorButton_pressed():
 func _on_CatTimerLabel_cat_approaching():
 	$GUI/CatApproach/Popup.play("Popups")
 	$MainAudio.set_pitch_scale(2)
+
+
+func _on_ResetTimer_timeout():
+	_change_puppy_sprites()
+	_randomize_cuteness()
