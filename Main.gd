@@ -4,15 +4,23 @@ var rng = RandomNumberGenerator.new()
 var store_cute = 0
 var min_cute = -10
 var max_cute = 10
-var vis_puppy_texture = preload("res://art/dog_realistic.png")
-var vis_puppy_texture2 = preload("res://art/puppy_realistic.png")
-var vis_puppy_texture3 = preload("res://art/large_puppy.png")
-var puppy_texture1 = preload("res://art/puppy1.png")
-var puppy_texture2 = preload("res://art/puppy2.png")
-var puppy_texture3 = preload("res://art/puppy3.png")
+
+var vis_puppy_texture 
+var vis_puppy_texture2 
+var vis_puppy_texture3
+var puppy_texture1 
+var puppy_texture2 
+var puppy_texture3 
+
 #var global = get_tree().get_node("Global")
 
 func _ready():
+	vis_puppy_texture = load("res://Art/dog_realistic.png")
+	vis_puppy_texture2 = load("res://Art/puppy_realistic.png")
+	vis_puppy_texture3 = load("res://Art/large_puppy.png")
+	puppy_texture1 = load("res://Art/puppy1.png")
+	puppy_texture2 = load("res://Art/puppy2.png")
+	puppy_texture3 = load("res://Art/puppy3.png")
 	$MainAudio.play()
 	_dog_Bark_Loop()
 	rng.randomize()
@@ -26,21 +34,21 @@ func _dog_Bark_Loop():
 	var t = Timer.new()
 	t.set_wait_time(10)
 	t.set_one_shot(true)
-	self.add_child(t)
+	add_child(t)
 	t.start()
 	yield(t, "timeout")
 	$Bark.play()
 	var b = Timer.new()
 	b.set_wait_time(1)
 	b.set_one_shot(true)
-	self.add_child(t)
+	add_child(t)
 	b.start()
 	yield(b, "timeout")
 	$Bark.play()
 	var bc = Timer.new()
 	bc.set_wait_time(1)
 	bc.set_one_shot(true)
-	self.add_child(t)
+	add_child(t)
 	bc.start()
 	yield(bc, "timeout")
 	
@@ -80,7 +88,7 @@ func _on_BothButtons_pressed():
 	_change_puppy_sprites()
 	$ResetTimer.start()
 	
-func _process(delta):
+func _process(_delta):
 	$GUI/CutenessUpdate/Control/CurrCute.text = str(store_cute)
 	if store_cute > max_cute:
 		get_tree().change_scene("res://LoseScreenTooCute.tscn")

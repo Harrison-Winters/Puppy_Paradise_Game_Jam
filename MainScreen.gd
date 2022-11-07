@@ -2,7 +2,7 @@ extends Node2D
 
 func _ready():
 	$Bounce.play("BounceAnim")
-	$AnimationPlayer.play("New Anim (2)")
+#	$AnimationPlayer.play("New Anim (2)")
 	var t = Timer.new()
 	t.set_wait_time(10)
 	t.set_one_shot(true)
