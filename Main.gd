@@ -48,6 +48,7 @@ func _dog_Bark_Loop():
 	
 
 func _on_1Button_pressed():
+	$GUI/CutenessUpdate.play("CuteGrow")
 	$DoorBell.play()
 	_start_Bark_Loop()
 	store_cute = store_cute + $Dog1.cuteness
@@ -58,6 +59,7 @@ func _on_1Button_pressed():
 	
 	
 func _on_2Button_pressed():
+	$GUI/CutenessUpdate.play("CuteGrow")
 	$DoorBell.play()
 	_start_Bark_Loop()
 	store_cute = store_cute + $Dog2.cuteness
@@ -68,6 +70,7 @@ func _on_2Button_pressed():
 	
 	
 func _on_BothButtons_pressed():
+	$GUI/CutenessUpdate.play("CuteGrow")
 	$DoorBell.play()
 	_start_Bark_Loop()
 	store_cute = store_cute + $Dog1.cuteness + $Dog2.cuteness
@@ -78,14 +81,14 @@ func _on_BothButtons_pressed():
 	$ResetTimer.start()
 	
 func _process(delta):
-	$GUI/CurrCute.text = "\n" + str(store_cute)
+	$GUI/CutenessUpdate/Control/CurrCute.text = str(store_cute)
 	if store_cute > max_cute:
 		get_tree().change_scene("res://LoseScreenTooCute.tscn")
 	elif store_cute < min_cute:
 		get_tree().change_scene("res://LoseScreen.tscn")
 
-	$GUI/Dog1Label.text = "\n" + str($Dog1.cuteness)
-	$GUI/Dog2Label.text = "\n" + str($Dog2.cuteness)
+	$GUI/Dog1Label.text = str($Dog1.cuteness)
+	$GUI/Dog2Label.text = str($Dog2.cuteness)
 	
 	# If you're in a guaranteed loss situation,
 	# Remove the Close Door Button

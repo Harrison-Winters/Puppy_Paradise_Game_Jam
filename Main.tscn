@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://default_font_dog.tres" type="DynamicFont" id=2]
@@ -26,15 +26,11 @@
 [ext_resource path="res://Audio/bark.mp3" type="AudioStream" id=24]
 [ext_resource path="res://Fonts/Candy Beans.otf" type="DynamicFontData" id=25]
 
-[sub_resource type="DynamicFont" id=1]
-size = 40
-font_data = ExtResource( 1 )
-
 [sub_resource type="DynamicFont" id=21]
 size = 45
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
-extra_spacing_bottom = -13
+extra_spacing_bottom = -22
 font_data = ExtResource( 25 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -159,6 +155,80 @@ font_data = ExtResource( 16 )
 
 [sub_resource type="StyleBoxEmpty" id=18]
 
+[sub_resource type="Animation" id=22]
+resource_name = "CuteGrow"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CutenessUpdate/Control:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.3, 1.3 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CutenessUpdate/Control/CurrCute:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.635294, 1, 0.984314, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CutenessUpdate/Control:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CutenessUpdate/Control:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CutenessUpdate/Control/CurrCute:custom_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 19 )
+
 [sub_resource type="Shader" id=19]
 
 [sub_resource type="ShaderMaterial" id=20]
@@ -179,18 +249,6 @@ margin_bottom = 614.0
 position = Vector2( 560, 327 )
 scale = Vector2( 0.518425, 0.454694 )
 texture = ExtResource( 14 )
-
-[node name="CurrCute" type="Label" parent="GUI"]
-margin_left = 685.0
-margin_top = 152.0
-margin_right = 1014.0
-margin_bottom = 296.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Total
-Cuteness
-300"
-align = 1
 
 [node name="GuySprite" type="Sprite" parent="GUI"]
 position = Vector2( 512, 290 )
@@ -233,35 +291,33 @@ text = "Dog 1:"
 align = 1
 
 [node name="Dog1Label" type="Label" parent="GUI"]
-margin_left = 202.0
-margin_top = 452.0
-margin_right = 541.0
-margin_bottom = 557.0
+margin_left = 198.0
+margin_top = 503.0
+margin_right = 537.0
+margin_bottom = 608.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "
-500"
+text = "500"
 align = 1
 
-[node name="Dog2Label" type="Label" parent="GUI"]
-margin_left = 564.0
-margin_top = 450.0
-margin_right = 698.0
-margin_bottom = 555.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "
--700"
-align = 1
-
-[node name="Dog2Val" type="Label" parent="GUI/Dog2Label"]
-margin_left = -271.0
-margin_top = 5.0
-margin_right = 405.0
-margin_bottom = 140.0
+[node name="Dog2Val" type="Label" parent="GUI"]
+margin_left = 293.0
+margin_top = 455.0
+margin_right = 969.0
+margin_bottom = 590.0
 custom_colors/font_color = Color( 0.772549, 0.952941, 1, 1 )
 custom_fonts/font = SubResource( 21 )
 text = "Dog 2:"
+align = 1
+
+[node name="Dog2Label" type="Label" parent="GUI"]
+margin_left = 559.0
+margin_top = 504.0
+margin_right = 693.0
+margin_bottom = 609.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "-700"
 align = 1
 
 [node name="1Button" type="Button" parent="GUI"]
@@ -417,6 +473,7 @@ margin_left = 142.0
 margin_top = 18.0
 margin_right = 818.0
 margin_bottom = 153.0
+rect_pivot_offset = Vector2( 323, 52 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 21 )
 text = "Too Cute:
@@ -425,6 +482,41 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="CutenessLabel" type="Label" parent="GUI"]
+margin_left = 525.0
+margin_top = 135.0
+margin_right = 1207.0
+margin_bottom = 267.0
+rect_pivot_offset = Vector2( 323, 52 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 21 )
+text = "Total 
+Cuteness"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CutenessUpdate" type="AnimationPlayer" parent="GUI"]
+anims/CuteGrow = SubResource( 22 )
+anims/RESET = SubResource( 23 )
+
+[node name="Control" type="Control" parent="GUI/CutenessUpdate"]
+margin_left = 857.0
+margin_top = 259.0
+margin_right = 857.0
+margin_bottom = 259.0
+
+[node name="CurrCute" type="Label" parent="GUI/CutenessUpdate/Control"]
+margin_left = -162.0
+margin_top = -30.0
+margin_right = 167.0
+margin_bottom = 147.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "300"
+align = 1
 
 [node name="CatSprite" type="Sprite" parent="."]
 material = SubResource( 20 )
@@ -437,6 +529,7 @@ position = Vector2( 0, -2 )
 script = ExtResource( 5 )
 
 [node name="Dog2" type="Node2D" parent="."]
+position = Vector2( 1, 0 )
 script = ExtResource( 4 )
 
 [node name="VisualDogs" type="Node2D" parent="."]
